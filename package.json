@@ -1,0 +1,27 @@
+{
+  "name": "JustAPotato",
+  "version": "1.0.0",
+  "description": "An entertainment bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "slimerancher"
+  ],
+  "author": "hernikplays#4673",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "cpu-stat": "^2.0.1",
+    "discord.js": "^11.4.0",
+    "google-translate-api": "^2.3.0",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2",
+    "ms": "^2.1.1",
+    "nekos.life": "^1.1.4",
+    "npm": "^6.3.0",
+    "os": "^0.1.1",
+    "random-puppy": "^1.1.0",
+    "superagent": "^3.8.3"
+  }
+}
