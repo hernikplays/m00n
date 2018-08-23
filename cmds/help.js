@@ -23,6 +23,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("help", `Displays all commands`)
             .addField("ping", `Pong!`)
             .addField("error <the bug>", "Sends a bug report to the support server. **Abuse and you will be blacklisted**")
+            .addField("invite", "Sends an invite link for the bot")
             .setFooter(`Bot Prefix: ${theprefix} -- <required> [optional] -- Bot is still in development, any bugs to ${theprefix}error -- created by hernikplays#4673`)
           
             await message.channel.send({embed: embed});
