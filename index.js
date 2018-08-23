@@ -31,7 +31,7 @@ bot.on("ready", async () => {
      
       
 
-    bot.user.setActivity(`the veggies // pt.help`, {type: 'WATCHING'});
+    bot.user.setActivity(`the veggies in ${bot.guilds.size} servers // pt.help`, {type: 'WATCHING'});
 });
 
 bot.on("message", async message => {
