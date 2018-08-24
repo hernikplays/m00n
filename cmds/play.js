@@ -5,31 +5,15 @@ var servers = {};
 
 
 module.exports.run = async (bot, message, args) => {
-    function play(){
-        var server = server[message.guild.id];
-        server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
-    
-        server.queue.shift();
-    
-        server.dispatcher.on("end", function() {
-            if(server.queue[0]) play(connection, message);
-            else connection.disconnect; 
-        });
-    }
-
+    if(!message.author.id == "145973959127597057") return message.reply("This command is currently in testing")
     if(!args[0]) return message.reply("You need to send a YouTube link!");
     if(!message.member.voiceChannel) return message.reply("Music is better played from a voice channel! Please join one first!");
-    if(!servers[message.guild.id]) servers[message.guild.id] = {
-        queue: []
-    };
-    
-    var server = servers[message.guild.id];
-
-    server.queue.push(args[0]);
-
-    if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection){
-        play(connection, message);
-    });
+    let validate = await YTDL.validateURL(args[0]);
+    if(!validate) return message.reply("Please enter a valid URL");
+    let info = await YTDL.getInfo(args[0]);
+    let connection = await message.member.voiceChannel.join();
+    let dispatcher = await connection.play(YTDL(args[0], {filter: "audioonly"}));
+    message.channel.send(`Now playing: ${info.title}`);
 }
 
 module.exports.help = {
