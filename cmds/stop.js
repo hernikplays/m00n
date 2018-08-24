@@ -4,7 +4,7 @@ var servers = {};
 
 
 module.exports.run = async (bot, message, args) => {
-    if(!message.author.id == "145973959127597057") return message.reply("This command is currently in testing")
+    if(!message.author.id == "145973959127597057") return message.reply("This command is currently in testing limited due to limits of our (free) hosting")
     function play(connection, message) {
         var server = server[message.guild.id];
         server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
