@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     if(!validate) return message.reply("Please enter a valid URL");
     let info = await YTDL.getInfo(args[0]);
     let connection = await message.member.voiceChannel.join();
-    let dispatcher = await connection.play(YTDL(args[0], {filter: "audioonly"}));
+    let dispatcher = await connection.playStream(YTDL(args[0], {filter: "audioonly"}));
     message.channel.send(`Now playing: ${info.title}`);
 }
 
