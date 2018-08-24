@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
    }
    
    if(!message.member.voiceChannel) {
-       message.channel.sned("Umm... You need to be in a voice channel!");
+       message.channel.send("Umm... You need to be in a voice channel!");
    }
 
    if(!servers[message.guild.id]) servers[message.guild.id] = {
