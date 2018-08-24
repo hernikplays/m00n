@@ -16,12 +16,12 @@ module.exports.run = async (bot, message, args) => {
             else connection.disconnect; 
         });
     }
-    
+
     if(!args[0]) return message.reply("You need to send a YouTube link!");
     if(!message.member.voiceChannel) return message.reply("Music is better played from a voice channel! Please join one first!");
     if(!servers[message.guild.id]) servers[message.guild.id] = {
         queue: []
-    }
+    };
     
     var server = servers[message.guild.id];
 
