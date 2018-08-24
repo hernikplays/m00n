@@ -3,7 +3,7 @@ const botconfig = require("../botconfig.json");
 module.exports.run = async (bot, message, args) => {
     
     if (message.author.id !== '145973959127597057' && message.author.id !== '145973959127597057') return message.channel.send("*Oh hey. You suck!* - Scout");
-    message.channel.send("You have *got* to be kidding me!").then(msg => {
+    message.channel.send("Woosh!").then(msg => {
         msg.delete(2000)
     });
     bot.destroy();

@@ -7,27 +7,27 @@ module.exports.run = async (bot, message, args) => {
   let result = Math.floor((Math.random() * 100) + 0);
   
     const happyrate = new Discord.RichEmbed()
-  .setDescription(`I would rate **${m421}** ${result}/100 ❤`)
+  .setDescription(`I would totally rate **${m421}** ${result}/100 ❤`)
   .setColor(`GREEN`)
     
       const sadembed = new Discord.RichEmbed()
-  .setDescription(`I would rate **${m421}** ${result}/100 😭`)
+  .setDescription(`I think that ${result}/100 is fair enough for **${m421}**`)
   .setColor(`GREEN`)
       
         const idkembed = new Discord.RichEmbed()
-  .setDescription(`I would rate **${m421}** ${result}/100 🤔`)
+  .setDescription(`I would rate **${m421}** ${result}/100 Don't judge me!`)
   .setColor(`GREEN`)
         
       const shrugembed = new Discord.RichEmbed()
-  .setDescription(`I would rate **${m421}** ${result}/100 🤷`)
+  .setDescription(`I would rate **${m421}** a solid ${result}/100`)
   .setColor(`GREEN`)
                 
           const okembed = new Discord.RichEmbed()
-  .setDescription(`I would rate **${m421}** ${result}/100 👌`)
+  .setDescription(`${result}/100 for **${m421}** That's what I thought!`)
   .setColor(`GREEN`)
                         
 const thumbupembed = new Discord.RichEmbed()
-  .setDescription(`I would rate **${m421}** ${result}/100 👍`)
+  .setDescription(`You can't fool me! The rating for **${m421}** should be ${result}/100 👍`)
   .setColor(`GREEN`)
 
 const eyesembed = new Discord.RichEmbed()

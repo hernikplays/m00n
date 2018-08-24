@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     let picSlice = picStr.slice(8);
     let picGet = picSlice.slice(0, -2);
     let emb = new Discord.RichEmbed()
-        .setDescription(`Here is your free Hentai GIF!`)
+        .setDescription(`Here is your Hentai GIF!`)
         .setColor("RANDOM")
         .setImage(picGet)
         .setFooter(`Requested by ${message.author.username} & Powered by nekos.life`, message.author.avatarURL);

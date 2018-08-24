@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 
 module.exports.run = async (bot, message, args) => {
     
-    if (!message.channel.nsfw) return message.channel.send("This command can only be used in NSFW channels!");
+    if (!message.channel.nsfw) return message.channel.send("Holy potato! You are not in a NSFW channel!");
 
     var subreddits = [
         'NSFW_Wallpapers',
