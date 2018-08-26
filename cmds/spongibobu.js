@@ -6,9 +6,10 @@ module.exports.run = async (bot, message, args) => {
   if(!args[0]) return message.reply(returnmsg);
 
    let meme = spongi(args);
+   let memeworks = meme.replace(",","&nbsp;")
 
 
-   message.channel.send(meme);
+   message.channel.send(memeworks);
    
 }
 
