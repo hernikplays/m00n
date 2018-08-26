@@ -5,12 +5,10 @@ module.exports.run = async (bot, message, args) => {
 
   if(!args[0]) return message.reply(returnmsg);
 
-   let meme = spongi(args.join(''));
-   let stringpls=meme.toString();
-   let memeworks = stringpls.replace(",","&nbsp;")
+   let meme = spongi(args.join(' '));
+   
 
-  console.log(meme + memeworks);
-   message.channel.send(memeworks);
+   message.channel.send(meme);
    
 }
 
