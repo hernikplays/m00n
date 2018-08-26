@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("minecraft <achievement>", "Generates a minecraft achievement")
             .addField("=== Text Manipulation ===", "Change text")
             .addField("spongibobu <text>", "tUrn Your tExT To soMetHiNg liKe tHis")
-            .addField("fliptable <text>", "Flip the text")
+            .addField("flip <text>", "Flip the text")
             .addField("=== NSFW Commands ===", "Only in NSFW channels")
             .addField("nsfw", "NSFW Pictures UwU")
             .addField("hentai", "Hentai GIFs OwO")
