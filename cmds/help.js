@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("rps <rock/paper/scissors>", "Play rock, paper, scissors")
             .addField("coinflip", "Flip a coin")
             .addField("meme", "Get a meme")
+            .addField("spongibobu <text>", "tUrn Your tExT To soMetHiNg liKe tHis")
             .addField("minecraft <achievement>", "Generates a minecraft achievement")
             .addField("=== NSFW Commands ===", "Only in NSFW channels")
             .addField("nsfw", "NSFW Pictures UwU")
