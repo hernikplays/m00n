@@ -23,6 +23,7 @@
     "opusscript": "0.0.6",
     "os": "^0.1.1",
     "random-puppy": "^1.1.0",
+    "spongibobu.js": "^1.1.0",
     "superagent": "^3.8.3",
     "ytdl-core": "^0.24.0"
   }
