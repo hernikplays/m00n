@@ -2,16 +2,17 @@ const Discord = module.require("discord.js");
 const superagent = require("snekfetch");
 
 module.exports.run = async (bot, message, args) => {
-    if (!message.channel.nsfw) return message.channel.send('Holy potato! You are not in a NSFW channel!')
-    superagent.get('https://nekos.life/api/v2/img/lewd')
+    superagent.get('https://icanhazdadjoke.com/')
         .end((err, response) => {
       const e = new Discord.RichEmbed()
-      .setImage(response.body.url)
+      .setTitle("Here is your dad joke")
+      .addField(response.body.text)
       .setColor(`RANDOM`)
+      .setFooter("Supplied by icanhazdadjoke.com")
   message.channel.send(e);
         })
 }
 
 module.exports.help = {
-    name: "nekolewd"
+    name: "dadjoke"
 }
