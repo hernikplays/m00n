@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
         .end((err, response) => {
             console.log(response);
       const e = new Discord.RichEmbed()
-      .addField("Here is your dad joke", response.body.text)
+      .addField("Here is your dad joke", response.body.attachment+".0:."+fallback )
       .setColor(`RANDOM`)
       .setFooter("Supplied by icanhazdadjoke.com")
   message.channel.send(e);
