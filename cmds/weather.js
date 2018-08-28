@@ -4,7 +4,6 @@ const Webhook = require("webhook-discord")
 const Hook = new Webhook(process.env.WBHK)
 module.exports.run = async (bot, message, args) => {
     
-    if(!message.author.id == "145973959127597057") return message.reply("This command is being tested")
     if(!args[0]) return message.reply("You need to enter a location!");
     if(!args[1]){
         let nope = args.join(' ');
