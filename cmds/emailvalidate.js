@@ -6,7 +6,15 @@ module.exports.run = async (bot, message, args) => {
     .header("X-Mashape-Key", process.env.APIKEY)
     .header("Accept", "application/json")
     .end(function (result) {
-      console.log(result.status, result.headers, result.body.isValid);
+      console.log(result.body.isValid);
+      if(result.body.isValid == true){
+          message.channel.send(`The e-mail ${args} is valid`)
+        return;
+      }
+      else if(result.body.isValid == false){
+          message.channel.send(`The e-mail ${args} is not valid`)
+          return;
+      }
     });
 }
 

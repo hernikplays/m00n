@@ -32,6 +32,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("hentai", "Hentai GIFs OwO")
             .addField("nekolewd","Sends a 'lewd' neko")
             .addField("=== Other Commands ===", "Unrelated")
+            .addField("ev <e-mail>", "Checks if an e-mail is valid")
             .addField("fortnite <Fortnite Username>", "Search some Fortnite stats!")
             .addField("tr <from:iso> <to:iso> <text>", "Translates text")
             .addField("stats", "Show some bot stats")
