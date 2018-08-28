@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
             console.log(JSON.stringify(result, null, 2));
     });
     }
-    else{
+    else if(args[1] == "F"){
     weather.find({search: args.join(' ').substring("1", "0"), degreeType: 'F'}, function(err, result) {
         if(err) Hook.err(`There was an error in the weather command: ${err}`,"JustAPotato");
     
