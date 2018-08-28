@@ -32,7 +32,6 @@ module.exports.run = async (bot, message, args) => {
           .setTitle("Help - Page 2")
           .setColor("#d3b626")
           .addField("[=== NSFW Commands ===](https://jap.hernikplays.tk/doc/commands#nsfw)", "Only in NSFW channels")
-            .addField("nsfw", "NSFW Pictures UwU")
             .addField("hentai", "Hentai GIFs OwO")
             .addField("nekolewd","Sends a 'lewd' neko")
           .addField("[=== Other Commands ===](https://jap.hernikplays.tk/doc/commands#other)", "Unrelated")
