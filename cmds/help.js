@@ -15,6 +15,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("coinflip", "Flip a coin")
             .addField("meme", "Get a meme")
             .addField("minecraft <achievement>", "Generates a minecraft achievement")
+            .addField("weather <Location> [Degree Type (F/C)]", "Displays weather info")
             .addField("=== Text Manipulation ===", "Change text")
             .addField("spongibobu <text>", "tUrn Your tExT To soMetHiNg liKe tHis")
             .addField("flip <text>", "Flip the text")

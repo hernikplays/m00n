@@ -12,14 +12,14 @@ module.exports.run = async (bot, message, args) => {
     let cpuLol;
     cpuStat.usagePercent(function(err, percent, seconds) {
         if (err) {
-            return Hook.err(`There was an error in the stats command: ${err}`,"Error");
+            return Hook.err(`There was an error in the stats command: ${err}`,"JustAPotato");
         }
         const duration = moment.duration(bot.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
         const embedStats = new Discord.RichEmbed()
             .setAuthor(bot.user.username)
             .setTitle("**Bot Stats**")
             .setColor("RANDOM")
-            .addField("Bot Version", "0.3.6")
+            .addField("Bot Version", "0.3.7")
             .addField("Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
             .addField("Uptime ", `${duration}`, true)
             .addField("Servers", `${bot.guilds.size.toLocaleString()}`, true)
