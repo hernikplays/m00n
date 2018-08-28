@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
         let nope = args.join(' ');
         let wem = new Discord.RichEmbed()
         .setTitle(`Weather forecast for ${nope}`)
-        .setImage(`https://wttr.in/${nope}.png`)
+        .setImage(`https://wttr.in/${nope}.png?m`)
         .setFooter("Powered by wttr.in", "https://s8.postimg.cc/7i7ntzih1/wttr_in.png")
         message.channel.send(wem);
             return;
