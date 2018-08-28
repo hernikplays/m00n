@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     .header("X-Mashape-Key", process.env.APIKEY)
     .header("Accept", "application/json")
     .end(function (result) {
-      console.log(result.status, result.headers, result.body);
+      console.log(result.status, result.headers, result.body.isValid);
     });
 }
 
