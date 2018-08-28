@@ -9,7 +9,8 @@ module.exports.run = async (bot, message, args) => {
     if(!args[1]){
         weather.find({search: args.join(' '), degreeType: 'C'}, function(err, result) {
             if(err) Hook.err(`There was an error in the weather command: ${err}`,"JustAPotato");
-            console.log(result.current.temperature);
+            
+            return;
     });
     }
     else if(args[1] == "F"){
@@ -22,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Current Temperature",`${stringif.current.temperature}°F`)
         .addField("Sky", stringif.current.skytext)
         .addField("Wind Speed & Location", stringif.current.winddisplay)
-        message.channel.send(wem)
+        message.channel.send(wem);
     });}
 }
 
