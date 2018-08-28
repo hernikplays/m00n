@@ -30,6 +30,7 @@
     "superagent": "^3.8.3",
     "weather-js": "^2.0.0",
     "webhook-discord": "^2.3.0",
-    "ytdl-core": "^0.24.0"
+    "ytdl-core": "^0.24.0",
+    "zalgo-js": "^1.0.0"
   }
 }

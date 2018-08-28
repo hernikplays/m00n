@@ -20,6 +20,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("spongibobu <text>", "tUrn Your tExT To soMetHiNg liKe tHis")
             .addField("flip <text>", "Flip the text")
             .addField("base64 <text>", "Encodes given text in base64")
+            .addField("zalgo <text>", "Makes text resemble the devil inside you")
             .addField("=== NSFW Commands ===", "Only in NSFW channels")
             .addField("nsfw", "NSFW Pictures UwU")
             .addField("hentai", "Hentai GIFs OwO")
