@@ -9,6 +9,7 @@ module.exports.run = async (bot, message, args) => {
         "https://78.media.tumblr.com/bcb8650d1a4008adf82b3a81c159a8cb/tumblr_ow94acgvhs1w9eqv0o1_1280.png",
         "https://i.ytimg.com/vi/T7TWe3aiYqg/maxresdefault.jpg",
         "https://media.tenor.com/images/6cdd45fbe9f4eb800f69587d051d5562/tenor.gif",
+        "https://cdn.discordapp.com/attachments/469680760232738816/483974855184744498/unknown.png",
       ]
       let result = Math.floor((Math.random() * pyromemes.length));
       const e = new Discord.RichEmbed()
