@@ -43,6 +43,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("ping", `Pong!`)
             .addField("error <the bug>", "Sends a bug report to the support server. **Abuse and you will be blacklisted**")
             .addField("invite", "Sends an invite link for the bot")
+            .addField("vote", "Gives link for voting! VOTE FOR ME PLS!")
             .addField("web", "Gives link to website")
             await message.channel.send({embed: embed});
             await message.channel.send(em2);
