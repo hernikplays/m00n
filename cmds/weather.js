@@ -16,10 +16,10 @@ module.exports.run = async (bot, message, args) => {
   
     }
     else if(args[1] == "F"){
-    
+    let nope = args.substring(2,0);
         let wem = new Discord.RichEmbed()
-        .setTitle(`Weather forecast for ${args}`)
-        .setImage(`https://wttr.in/${args}.png?u`)
+        .setTitle(`Weather forecast for ${nope}`)
+        .setImage(`https://wttr.in/${nope}.png?u`)
         .setFooter("Powered by wttr.in", "https://s8.postimg.cc/7i7ntzih1/wttr_in.png")
         message.channel.send(wem);
         return;
