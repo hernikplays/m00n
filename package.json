@@ -30,6 +30,7 @@
     "spongibobu.js": "^1.1.0",
     "superagent": "^3.8.3",
     "to-zalgo": "^1.0.1",
+    "twitch-emoticons": "^2.1.0",
     "weather-js": "^2.0.0",
     "webhook-discord": "^2.3.0",
     "ytdl-core": "^0.24.0"
