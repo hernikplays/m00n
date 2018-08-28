@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     }
     else if(args[1] == "F"){
         let yeet = args.join(' ')
-    let nope = yeet.substring(2,0);
+    let nope = yeet; //Had something here :D
         let wem = new Discord.RichEmbed()
         .setTitle(`Weather forecast for ${nope}`)
         .setImage(`https://wttr.in/${nope}.png?u`)
