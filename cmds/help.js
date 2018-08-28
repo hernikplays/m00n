@@ -31,7 +31,11 @@ module.exports.run = async (bot, message, args) => {
             .addField("nsfw", "NSFW Pictures UwU")
             .addField("hentai", "Hentai GIFs OwO")
             .addField("nekolewd","Sends a 'lewd' neko")
-            .addField("=== Other Commands ===", "Unrelated")
+            .setFooter(`Bot Prefix: ${theprefix} -- <required> [optional] -- Bot is still in development, any bugs to ${theprefix}error -- created by hernikplays#4673`)
+          let em2 = new Discord.RichEmbed()
+          .setTitle("Help - Page 2")
+          .setColor("#d3b626")
+          .addField("=== Other Commands ===", "Unrelated")
             .addField("ev <e-mail>", "Checks if an e-mail is valid")
             .addField("fortnite <Fortnite Username>", "Search some Fortnite stats!")
             .addField("tr <from:iso> <to:iso> <text>", "Translates text")
@@ -40,9 +44,8 @@ module.exports.run = async (bot, message, args) => {
             .addField("ping", `Pong!`)
             .addField("error <the bug>", "Sends a bug report to the support server. **Abuse and you will be blacklisted**")
             .addField("invite", "Sends an invite link for the bot")
-            .setFooter(`Bot Prefix: ${theprefix} -- <required> [optional] -- Bot is still in development, any bugs to ${theprefix}error -- created by hernikplays#4673`)
-          
             await message.channel.send({embed: embed});
+            await message.channel.send(em2);
             
 }
 
