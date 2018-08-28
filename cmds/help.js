@@ -1,5 +1,5 @@
 let Discord = module.require("discord.js");
-const theprefix = "pt." // Here it is just so I don't have to rewrite the footer
+const theprefix = "pt!" // Here it is just so I don't have to rewrite the footer
 module.exports.run = async (bot, message, args) => {
     let embed = new Discord.RichEmbed()
             .setAuthor(message.author.username)
