@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 const superagent = require("snekfetch");
 
 module.exports.run = async (bot, message, args) => {
-    superagent.get('https://icanhazdadjoke.com/')
+    superagent.get('https://icanhazdadjoke.com/slack')
         .end((err, response) => {
             console.log(response);
       const e = new Discord.RichEmbed()
