@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
       }
       const ghembed = new Discord.RichEmbed()
           .setColor(`RANDOM`)
-          .setTitle(`${blobwat} ${message.author.username} hugged themself...! (weirdo)`)
+          .setTitle(`${blobwat} ${message.author.username} kissed themself...! (weirdo)`)
           .setImage('https://cdn.discordapp.com/attachments/452115003659780096/460369555823525898/kiss.gif')
       message.channel.send({
           embed: ghembed

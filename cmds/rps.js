@@ -24,11 +24,11 @@ module.exports.run = async (bot, message, args) => {
     if(!choice) return message.channel.send(errEmbed);
   if (choice == "paper" || choice == "p") {
     var numb = Math.floor(Math.random() * 100);
-    if (numb <= 50) {
+    if (numb <= 33) {
       var choice2 = "paper";
-    } else if (numb > 50) {
+    } else if (numb > 66) {
       var choice2 = "rock";
-    } else {
+    } else if(numb <= 65 && numb >= 34){
       var choice2 = "scissors";
     }
     if (choice2 == "scissors") {

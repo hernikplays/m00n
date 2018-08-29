@@ -31,7 +31,7 @@ module.exports.run = async (bot, message, args) => {
             const ballEmb = new Discord.RichEmbed()
             .setColor(0x00FFFF)
             .setAuthor('8ball', 'https://findicons.com/files/icons/1700/2d/512/8_ball.png')
-            .addField(args, sayings[result]);
+            .addField(args.join(' '), sayings[result]);
                   message.channel.send({embed: ballEmb})
   
 }
