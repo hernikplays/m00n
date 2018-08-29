@@ -15,10 +15,10 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-  message.channel.send("You need to specify rock, paper or scissors")
+  
 
     var choice = args[0];
-    if(!choice) return message.channel.send(errEmbed);
+    if(!choice) return message.channel.send("You need to specify rock, paper or scissors");
   if (choice == "paper" || choice == "p") {
     var numb = Math.floor(Math.random() * 100);
     console.log(numb);
