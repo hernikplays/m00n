@@ -15,20 +15,18 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-  const errEmbed = new Discord.RichEmbed()
-  .setColor(0xFF0000)
-  .setAuthor('ERROR')
-  .setTitle('Usage: **bl!rps (rock/paper/scissors)**');
+  message.channel.send("You need to specify rock, paper or scissors")
 
     var choice = args[0];
     if(!choice) return message.channel.send(errEmbed);
   if (choice == "paper" || choice == "p") {
     var numb = Math.floor(Math.random() * 100);
+    console.log(numb);
     if (numb <= 33) {
       var choice2 = "paper";
     } else if (numb > 66) {
       var choice2 = "rock";
-    } else if(numb <= 65 && numb >= 34){
+    } else if(numb <= 66 && numb >= 34){
       var choice2 = "scissors";
     }
     if (choice2 == "scissors") {
