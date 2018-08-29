@@ -21,13 +21,16 @@ module.exports.run = async (bot, message, args) => {
     if(!choice) return message.channel.send("You need to specify rock, paper or scissors");
   if (choice == "paper" || choice == "p") {
     var numb = Math.floor(Math.random() * 100);
-    console.log(numb);
+    
     if (numb <= 33) {
       var choice2 = "paper";
+      console.log(numb+" papers");
     } else if (numb > 66) {
       var choice2 = "rock";
+      console.log(numb+" rock");
     } else if(numb <= 66 && numb >= 34){
       var choice2 = "scissors";
+      console.log(numb+" scissors");
     }
     if (choice2 == "scissors") {
       var response = `${scissorswin} I'm choosing **Scissors**! I win!`
@@ -72,7 +75,7 @@ module.exports.run = async (bot, message, args) => {
     }
     message.channel.send(response);
   } else {
-    message.channel.send(`You need to use \`e!rps\` <rock|paper|scissors>`);
+    message.channel.send(`Only use rock, paper or scissors`);
   }
     
 }
