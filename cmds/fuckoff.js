@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
       let e = new Discord.RichEmbed()
       .addField(result.body)
       .setFooter("Delivered with fuckin' love by foaas.com")
-      message,channel.send(e);
+      message.channel.send(e);
       
     });
 }
