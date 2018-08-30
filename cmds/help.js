@@ -9,6 +9,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("8ball <question>", "Ask the magic 8ball a question")
             .addField("cat", "Get a cat!")
             .addField("coinflip", "Flip a coin")
+            .addField("dadjoke", "Gets you a random dad joke")
             .addField("dice", "Throw a six side dice")
             .addField("dog", "Get a dog!")
             .addField("fuckoff", "Gives you a random *insert explicit language warning here* fuck off to use")
