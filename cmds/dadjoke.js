@@ -1,5 +1,5 @@
 const Discord = module.require("discord.js");
-
+const unirest = require("unirest")
 module.exports.run = async (bot, message, args) => {
     unirest.get(`https://icanhazdadjoke.com/`)
     .header("Accept", "text/plain")
