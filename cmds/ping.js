@@ -2,7 +2,13 @@ const Discord = module.require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     
-    
+    dbl.on('posted', () => {
+        console.log('Server count posted!');
+      })
+      
+      dbl.on('error', e => {
+       console.log(`Oops! ${e}`);
+      })
     let m = await message.channel.send("Pinging...");
     
     let embed = new Discord.RichEmbed()

@@ -26,6 +26,13 @@ fs.readdir("./cmds/", (err, files) => {
 });
 
 bot.on("ready", async () => {
+    dbl.on('posted', () => {
+        console.log('Server count posted!');
+      })
+      
+      dbl.on('error', e => {
+       console.log(`Oops! ${e}`);
+      })
     console.log("Bot is online!");
     
      

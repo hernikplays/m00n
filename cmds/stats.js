@@ -6,10 +6,18 @@ let os = require('os')
 let cpuStat = require("cpu-stat")
 const ms = require("ms")
 const Webhook = require("webhook-discord")
- 
+ const DBL = require("dblapi.js")
+
 const Hook = new Webhook(process.env.WBHK)
 module.exports.run = async (bot, message, args) => {
-    let cpuLol;
+    const dbl = new DBL(process.env.DBL_TKN, bot);
+    dbl.on('posted', () => {
+        console.log('Server count posted!');
+      })
+      
+      dbl.on('error', e => {
+       console.log(`Oops! ${e}`);
+      })
     cpuStat.usagePercent(function(err, percent, seconds) {
         if (err) {
             return Hook.err(`There was an error in the stats command: ${err}`,"JustAPotato");
