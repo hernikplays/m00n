@@ -2,7 +2,7 @@ const talkedRecently = new Set();
 const Discord = module.require("discord.js");
 const superagent = require("superagent");
 module.exports.run = async (bot, message, args) => {
-    if (talkedRecently.has(msg.author.id)) {
+    if (talkedRecently.has(message.author.id)) {
         msg.channel.send(`${message.author.username} please wait 15 seconds before using that command again!`);
     }
     else {
