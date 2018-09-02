@@ -3,7 +3,8 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
 const prefix = botconfig.prefix;
-
+const DBL = require("dblapi.js")
+const dbl = new DBL(process.env.DBL_TKN, bot);
 bot.commands = new Discord.Collection();
 
 
