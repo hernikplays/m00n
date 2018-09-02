@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
         talkedRecently.add(message.author.id); //cooldown
         setTimeout(() => {
           
-          talkedRecently.delete(msg.author.id);
+          talkedRecently.delete(message.author.id);
         }, 15000);
     
     });
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
         talkedRecently.add(message.author.id); //cooldown
         setTimeout(() => {
          
-          talkedRecently.delete(msg.author.id);
+          talkedRecently.delete(message.author.id);
         }, 15000);
     });
     return;
@@ -52,7 +52,7 @@ module.exports.run = async (bot, message, args) => {
         talkedRecently.add(message.author.id); //cooldown
         setTimeout(() => {
           
-          talkedRecently.delete(msg.author.id);
+          talkedRecently.delete(message.author.id);
         }, 15000);
     });
     return;
@@ -69,7 +69,7 @@ module.exports.run = async (bot, message, args) => {
         talkedRecently.add(message.author.id); //cooldown
         setTimeout(() => {
          
-          talkedRecently.delete(msg.author.id);
+          talkedRecently.delete(message.author.id);
         }, 15000);
     });
     return;
