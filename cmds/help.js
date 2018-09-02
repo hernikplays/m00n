@@ -13,6 +13,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("dice", "Throw a six side dice")
             .addField("dog", "Get a dog!")
             .addField("fuckoff", "Gives you a random *insert explicit language warning here* fuck off to use")
+            .addField("kill [@user]", "Kills a user >:)")
             .addField("kiss <@user>", "Kiss a user :3")
             .addField("pyro", "Sends a Pyrocynical meme")
             .addField("smoke", "Smoke, but it's unhealthy!")
