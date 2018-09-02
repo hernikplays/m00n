@@ -1,7 +1,8 @@
 const Discord = module.require("discord.js");
+const DBL = require("dblapi.js")
 
 module.exports.run = async (bot, message, args) => {
-    
+    const dbl = new DBL(process.env.DBL_TKN, bot);
     dbl.on('posted', () => {
         console.log('Server count posted!');
       })
