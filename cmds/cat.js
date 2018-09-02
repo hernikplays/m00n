@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 const superagent = require("superagent");
 module.exports.run = async (bot, message, args) => {
     if (talkedRecently.has(message.author.id)) {
-        return message.channel.send(`${message.author.username} please wait 1 minute before using that command again!`);
+        return message.channel.send(`${message.author.username} please wait 15 seconds before using that command again!`);
     }
     else {
     let {
