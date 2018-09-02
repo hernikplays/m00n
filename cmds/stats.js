@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
             .setAuthor(bot.user.username)
             .setTitle("**Bot Stats**")
             .setColor("RANDOM")
-            .addField("Bot Version", "1.0.8")
+            .addField("Bot Version", "1.0.9")
             .addField("Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
             .addField("Uptime ", `${duration}`, true)
             .addField("Servers", `${bot.guilds.size.toLocaleString()}`, true)

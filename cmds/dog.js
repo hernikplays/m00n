@@ -1,6 +1,11 @@
+const talkedRecently = new Set();
 const Discord = module.require("discord.js");
 const superagent = require("superagent");
 module.exports.run = async (bot, message, args) => {
+    if (talkedRecently.has(msg.author.id)) {
+        msg.channel.send(`${message.author.username} please wait 15 seconds before using that command again!`);
+    }
+    else {
     let {
         body
     } = await superagent
@@ -10,6 +15,13 @@ module.exports.run = async (bot, message, args) => {
         .setColor("RANDOM")
         .setImage(body.url)
     message.channel.send(dogembed);
+
+    talkedRecently.add(message.author.id); //cooldown
+        setTimeout(() => {
+          
+          talkedRecently.delete(msg.author.id);
+        }, 15000);
+    }
 }
 
 module.exports.help = {
