@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor("RED")
         .setThumbnail(message.author.avatarURL);
 
-        if(message.author.id == blacklisted1 || message.author.id == blacklisted2) return message.channel.send(Blacklisted); 
+        if(message.author.id == blacklisted1) return message.channel.send(Blacklisted); 
     let replies = [`Won't work`, `May work`, `👀`, `Will Work`, `Who knows if it will work`, `High Chance of Working`, `Will Work <3`, `A Great Match <3`, `PERFECT MATCH ❤`]
         let result = Math.floor(Math.random() * replies.length);
         let mUser = message.mentions.users.first()
