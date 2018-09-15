@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
           let e = new Discord.RichEmbed()
           .setDescription("Wow!")
           .setImage(result.body)
-          .setFooter("Delivered with fuckin' love by foaas.com")
+          .setFooter("Shibes delivered with much **wow** by shibe.online")
           
           message.channel.send(e);
           
