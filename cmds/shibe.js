@@ -11,13 +11,11 @@ module.exports.run = async (bot, message, args) => {
         
         .end(function (result) {
             console.log(result.body)
-            let yeet = result.body
-            let feet = yeet.substr(3)
-            let yote = feet.slice(0, -3);
+            
             console.log(yeet + " "+ yote)
           let e = new Discord.RichEmbed()
           .setDescription("Wow!")
-          .setImage(yote)
+          .setImage(result.body.0)
           .setFooter("Shibes delivered with much **wow** by shibe.online")
           
           message.channel.send(e);
