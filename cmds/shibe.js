@@ -11,9 +11,12 @@ module.exports.run = async (bot, message, args) => {
         
         .end(function (result) {
             console.log(result.body)
+            let yeet = response.body.substr(3)
+            let yote = yeet.slice(0, -3);
+            console.log(yeet + " "+ yote)
           let e = new Discord.RichEmbed()
           .setDescription("Wow!")
-          .setImage(result.body)
+          .setImage(yote)
           .setFooter("Shibes delivered with much **wow** by shibe.online")
           
           message.channel.send(e);
