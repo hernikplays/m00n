@@ -7,8 +7,8 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send(`${message.author.username} please wait 15 seconds before using that command again!`);
     }
     else {
-        unirest.get(`http://shibe.online/api/shibe`)
-        .header("Accept", "text/plain")
+        unirest.get(`http://shibe.online/api/shibes`)
+        
         .end(function (result) {
             console.log(result.body)
           let e = new Discord.RichEmbed()
