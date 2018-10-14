@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("hentai", "Hentai GIFs OwO")
             .addField("nekolewd","Sends a 'lewd' neko")
           .addField("=== Other Commands ===", "Unrelated")
-          .addField("avatar [@user or ID]")
+          .addField("avatar [@user]")
             .addField("ev <e-mail>", "Checks if an e-mail is valid")
             .addField("fortnite <Fortnite Username>", "Search some Fortnite stats!")
             .addField("tr <from:iso> <to:iso> <text>", "Translates text")
