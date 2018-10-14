@@ -1,6 +1,7 @@
 const Discord = module.require("discord.js");
 module.exports.run = async (bot, message, args) => {
 let av = message.guild.member(message.mentions.users.first()) || message.guild.member(args[0]);
+console.log(message.guild.member(args[0]).username + " " + message.mentions.members.first().user.username)
    if(!av || av == message.author.id){
      var em = new Discord.RichEmbed()
      .setTitle("Your avatar")
