@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("base64 <text>", "Encodes given text in base64")
             .addField("zalgo <text>", "Makes text resemble the devil inside you")
             .addField("dezalgo <zalgo text>", "Dezalgo text")
-            .setFooter(`Bot Prefix: ${theprefix} -- <required> [optional] -- Bot is still in development, any bugs to ${theprefix}error -- created by hernikplays#4673`)
+            
           let em2 = new Discord.RichEmbed()
           .setTitle("Help - Page 2")
           .setColor("#d3b626")
@@ -38,6 +38,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("hentai", "Hentai GIFs OwO")
             .addField("nekolewd","Sends a 'lewd' neko")
           .addField("=== Other Commands ===", "Unrelated")
+          .addField("avatar [@user or ID]")
             .addField("ev <e-mail>", "Checks if an e-mail is valid")
             .addField("fortnite <Fortnite Username>", "Search some Fortnite stats!")
             .addField("tr <from:iso> <to:iso> <text>", "Translates text")
@@ -48,6 +49,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("invite", "Sends an invite link for the bot")
             .addField("vote", "Gives link for voting! VOTE FOR ME PLS!")
             .addField("web", "Gives link to website")
+            .setFooter(`Bot Prefix: ${theprefix} -- <required> [optional] -- Bot is still in development, any bugs to ${theprefix}error -- created by hernikplays#4673`)
             await message.channel.send({embed: embed});
             await message.channel.send(em2);
             

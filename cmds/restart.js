@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     bot.login(process.env.BOT_TKN);
     message.channel.send("Hey! Back from the dead!").then(msg => {
         msg.delete(5000)
-        Hook.info("Successfully Restarted", "Info");
+        Hook.info("Info", "Succesfully restarted");
     });
 }
 
