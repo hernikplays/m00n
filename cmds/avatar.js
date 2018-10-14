@@ -7,7 +7,13 @@ let av = message.guild.member(message.mentions.users.first()) || message.guild.m
      .setImage(message.author.avatarURL)
      message.channel.send(em);
    }
-   else{
+   else if(!message.mentions.members.first().user.username){
+    var em = new Discord.RichEmbed()
+     .setTitle(`Here is the avatar of ${message.guild.member(args[0]).username}`)
+     .setImage(message.guild.member(args[0]).avatarURL)
+     message.channel.send(em);
+   }
+   else {
     var em = new Discord.RichEmbed()
      .setTitle(`Here is the avatar of ${message.mentions.members.first().user.username}`)
      .setImage(message.mentions.members.first().user.avatarURL)
