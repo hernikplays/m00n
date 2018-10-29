@@ -1,5 +1,6 @@
 const Discord = module.require("discord.js");
 const Jimp = require(`jimp`);
+const talkedRecently = new Set();
 module.exports.run = async (bot, message, args) => {
     const blacklisted1 = [process.env.BL1] //Note to myself: add blacklisted people to a JSON or atleast a blacklist command
 
@@ -9,7 +10,10 @@ module.exports.run = async (bot, message, args) => {
         .setFooter("If you'd like to appeal to be whitelisted please contact hernikplays#4673")
         .setColor("RED")
         .setThumbnail(message.author.avatarURL);
-
+        if (talkedRecently.has(message.author.id)) {
+            return message.channel.send(`${message.author.username} please wait 15 seconds before using that command again!`);
+        }
+        else {
         if(message.author.id == blacklisted1) return message.channel.send(Blacklisted); 
     let replies = [`Won't work`, `May work`, `👀`, `Will Work`, `Who knows if it will work`, `High Chance of Working`, `Will Work <3`, `A Great Match <3`, `PERFECT MATCH ❤`]
         let result = Math.floor(Math.random() * replies.length);
@@ -40,12 +44,17 @@ module.exports.run = async (bot, message, args) => {
                         if (err) return err;
                         message.channel.send({files: [{attachment: buf, name: `saveme.jpg`}] });
                         message.channel.send(replies[result]);
+                        alkedRecently.add(message.author.id); //cooldown
+        setTimeout(() => {
+         
+          talkedRecently.delete(message.author.id);
+        }, 15000);
                         
                     });
                 });
             });}
         )});
-  
+        }
 }
 
 module.exports.help = {
