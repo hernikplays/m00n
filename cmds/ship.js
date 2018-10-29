@@ -19,19 +19,20 @@ module.exports.run = async (bot, message, args) => {
         let result = Math.floor(Math.random() * replies.length);
         let mUser = message.mentions.users.first()
         let mUser2 = message.mentions.users.last()
-        if(!mUser) return message.channel.send(`Please specifify two users next time!`)
+        if(!mUser2) return message.channel.send(`Please specifify two users next time!`)
         const mUserA = mUser.avatarURL
+        const mUserA2 = mUser2.avatarURL
         var imagetobase = `https://i.postimg.cc/K82n5L1D/meme.png`;
         Jimp.read(mUser.avatarURL, function (err, imagetouse) {
             if (err) throw err;
             imagetouse.quality(60)
                       .resize(866, 866)
-                      .write("imagetouse.jpg");
+                      .write(mUserA);
             Jimp.read(mUser2.avatarURL, function (err, imagetouse2) {
             if (err) throw err;
             imagetouse2.quality(60)
                       .resize(866, 866)
-                      .write("imagetouse2.jpg");
+                      .write(mUserA2);
             Jimp.read(imagetobase, function (err, mydude) {
                 if (err) throw err;
                 Jimp.loadFont(Jimp.FONT_SANS_64_WHITE).then(function (font) {
