@@ -19,7 +19,6 @@ module.exports.run = async (bot, message, args) => {
             .addField("smoke", "Smoke, but it's unhealthy!")
             .addField("rw <Name>", "I will rate your waifu!")
             .addField("rps <rock/paper/scissors>", "Play rock, paper, scissors")
-            .addField("ship <@user> [@user]")
             .addField("talk <thing>", "Chat with Cleverbot")
             .addField("meme", "Get a meme")
             .addField("minecraft <achievement>", "Generates a minecraft achievement")
