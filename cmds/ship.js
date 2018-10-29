@@ -13,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
         if (talkedRecently.has(message.author.id)) {
             return message.channel.send(`${message.author.username} please wait 15 seconds before using that command again!`);
         }
-        else {
-        if(message.author.id == blacklisted1) return message.channel.send(Blacklisted); 
+        
+       else if(message.author.id == blacklisted1) return message.channel.send(Blacklisted); 
     let replies = [`Won't work`, `May work`, `👀`, `Will Work`, `Who knows if it will work`, `High Chance of Working`, `Will Work <3`, `A Great Match <3`, `PERFECT MATCH ❤`]
         let result = Math.floor(Math.random() * replies.length);
         let mUser = message.mentions.users.first()
@@ -54,7 +54,7 @@ module.exports.run = async (bot, message, args) => {
          
           talkedRecently.delete(message.author.id);
         }, 15000);
-    }
+    
 }
 
 module.exports.help = {
