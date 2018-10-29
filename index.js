@@ -27,6 +27,12 @@ fs.readdir("./cmds/", (err, files) => {
 });
 
 bot.on("ready", async () => {
+    unirest.post('https://botsfordiscord.com/api/bot/481894520741691393')
+.headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+.send({ "count": bot.guilds.size, "Authorization": process.env.BFD_TKN})
+.end(function (response) {
+  console.log("It worked hopefully");
+});
     dbl.on('posted', () => {
         console.log('Server count posted!');
       })
