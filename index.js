@@ -5,6 +5,8 @@ const fs = require("fs");
 const prefix = botconfig.prefix;
 const DBL = require("dblapi.js")
 const dbl = new DBL(process.env.DBL_TKN, bot);
+const unirest = require("unirest")
+
 bot.commands = new Discord.Collection();
 
 

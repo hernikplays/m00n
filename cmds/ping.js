@@ -1,5 +1,6 @@
 const Discord = module.require("discord.js");
 const DBL = require("dblapi.js")
+const unirest = require("unirest")
 
 module.exports.run = async (bot, message, args) => {
     const dbl = new DBL(process.env.DBL_TKN, bot);
@@ -10,6 +11,12 @@ module.exports.run = async (bot, message, args) => {
       dbl.on('error', e => {
        console.log(`Oops! ${e}`);
       })
+      unirest.post('https://botsfordiscord.com/api/bot/481894520741691393')
+      .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+      .send({ "count": bot.guilds.size, "Authorization": process.env.BFD_TKN})
+      .end(function (response) {
+        console.log("It worked hopefully");
+      });
     let m = await message.channel.send("Pinging...");
     
     let embed = new Discord.RichEmbed()
