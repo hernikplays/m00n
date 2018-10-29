@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
                         if (err) return err;
                         message.channel.send({files: [{attachment: buf, name: `saveme.jpg`}] });
                         message.channel.send(replies[result]);
-                        alkedRecently.add(message.author.id); //cooldown
+                        talkedRecently.add(message.author.id); //cooldown
         setTimeout(() => {
          
           talkedRecently.delete(message.author.id);
