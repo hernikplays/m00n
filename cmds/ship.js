@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         let mUser2 = message.mentions.users.last()
         if(!mUser) return message.channel.send(`Please specifify two users next time!`)
         const mUserA = mUser.avatarURL
-        var imagetobase = `https://www.botempire.tk/i/test.png`;
+        var imagetobase = `https://i.postimg.cc/fy8vPR1R/saveme.jpg`;
         Jimp.read(mUser.avatarURL, function (err, imagetouse) {
             if (err) throw err;
             imagetouse.quality(60)
@@ -49,6 +49,7 @@ module.exports.run = async (bot, message, args) => {
                 });
             });}
         )});
+
         talkedRecently.add(message.author.id); //cooldown
         setTimeout(() => {
          
