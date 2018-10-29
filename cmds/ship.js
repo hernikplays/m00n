@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         let mUser2 = message.mentions.users.last()
         if(!mUser) return message.channel.send(`Please specifify two users next time!`)
         const mUserA = mUser.avatarURL
-        var imagetobase = `https://i.postimg.cc/fy8vPR1R/saveme.jpg`;
+        var imagetobase = `https://i.postimg.cc/K82n5L1D/meme.png`;
         Jimp.read(mUser.avatarURL, function (err, imagetouse) {
             if (err) throw err;
             imagetouse.quality(60)
@@ -36,7 +36,6 @@ module.exports.run = async (bot, message, args) => {
                 if (err) throw err;
                 Jimp.loadFont(Jimp.FONT_SANS_64_WHITE).then(function (font) {
                     mydude.quality(60)
-                    mydude.print(font, 635, 1717, `${message.author.username}`)
                     mydude.composite( imagetouse, 784, 797 )
                     mydude.composite( imagetouse2, 2191, 797)
                     mydude.write("saveme.jpg");
