@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
                       .resize(866, 866)
                       .write("imagetouse2.jpg");
             Jimp.read(imagetobase, function (err, mydude) {
-                if (err) throw err;
+              
                 Jimp.loadFont(Jimp.FONT_SANS_64_WHITE).then(function (font) {
                     mydude.quality(60)
                     mydude.print(font, 635, 1717, `${message.author.username}`)
