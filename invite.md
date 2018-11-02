@@ -1,1 +1,0 @@
-[Invite the bot](https://discordapp.com/oauth2/authorize?client_id=481894520741691393&scope=bot&permissions=347200)
