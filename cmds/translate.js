@@ -5,7 +5,7 @@ const command = ("tr")
 translate.engine = 'yandex';
 translate.key = process.env.YNDX;
 module.exports.run = async (bot, message, args) => {
-    
+    if(!message.author.id == "145973959127597057") return message.channel.send("This function has been disabled, because it broke, and I am fixing it.")
     if (args[0]) {
         
         let tobe_translated = message.content.slice(prefix.length + command.length + 1)
