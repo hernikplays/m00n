@@ -5,7 +5,7 @@ const command = ("tr")
 module.exports.run = async (bot, message, args) => {
     
     if (args[0]) {
-        console.log(`Args0 - ${args[0]} and ${args[1]}`)
+        
         let from_language = "auto" // default languages
         let to_language = "en" // default languages
         let tobe_translated = message.content.slice(prefix.length + command.length + 1) // Getting the text
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
                 .setThumbnail("https://cdn.dribbble.com/users/1341307/screenshots/3641494/google_translate.gif") // Optionnal stuff
             message.channel.send(translateembed)
         }).catch(err => {
-            message.channel.send("Usage: pt!tr from:iso to:iso Text to translate") // Yes, I used Romanian for my example. Do you have any problem?
+            console.log(err); // Yes, I used Romanian for my example. Do you have any problem?
         });
     } else {
         message.channel.send("Usage: pt!tr [from:iso] [to:iso] <Text to translate>` \nThe from: and to: are optional, you can check out <http://bit.ly/ISO_codesWiki> for the iso codes\nExample: ```" + prefix + "tr from:ro to:fr Salut, ce mai faci?```")
