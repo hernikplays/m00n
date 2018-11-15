@@ -2,6 +2,8 @@ const Discord = module.require("discord.js");
 const translate = require('translate');
 const prefix = ("pt!")
 const command = ("tr")
+translate.engine = 'yandex';
+translate.key = process.env.YNDX;
 module.exports.run = async (bot, message, args) => {
     
     if (args[0]) {
