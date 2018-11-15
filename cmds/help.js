@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
           .addField("avatar [@user]")
             .addField("ev <e-mail>", "Checks if an e-mail is valid")
             .addField("fortnite <Fortnite Username>", "Search some Fortnite stats!")
-            .addField("tr <from:iso> <to:iso> <text>", "Translates text")
+            .addField("tr <iso> <iso> <text>", "Translates text")
             .addField("stats", "Show some bot stats")
             .addField("help", `Displays all commands`)
             .addField("ping", `Pong!`)
