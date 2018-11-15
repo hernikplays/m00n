@@ -5,6 +5,7 @@ const command = ("tr")
 module.exports.run = async (bot, message, args) => {
     
     if (args[0]) {
+        console.log(`Args0 - ${args[0]} and ${args[1]}`)
         let from_language = "auto" // default languages
         let to_language = "en" // default languages
         let tobe_translated = message.content.slice(prefix.length + command.length + 1) // Getting the text
