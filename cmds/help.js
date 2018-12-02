@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("kill [@user]", "Kills a user >:)")
             .addField("kiss <@user>", "Kiss a user :3")
             .addField("pyro", "Sends a Pyrocynical meme")
-            .addField("smoke", "Smoke, but it's unhealthy!")
+    
             .addField("rw <Name>", "I will rate your waifu!")
             .addField("rps <rock/paper/scissors>", "Play rock, paper, scissors")
             .addField("talk <thing>", "Chat with Cleverbot")
