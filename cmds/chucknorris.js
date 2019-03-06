@@ -1,8 +1,8 @@
 const Discord = module.require("discord.js");
 const unirest = require("unirest")
 module.exports.run = async (bot, message, args) => {
-    unirest.get(`https://api.chucknorris.io/jokes/random`)
-    .header("Accept", "plain/text")
+    unirest.get(`http://api.chucknorris.io/jokes/random`)
+    .header("Accept", "application/json")
     .end(function (result) {
         console.log(result)
       let e = new Discord.RichEmbed()
