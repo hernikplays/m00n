@@ -9,6 +9,7 @@ module.exports.run = async (bot, message, args) => {
       const e = new Discord.RichEmbed()
       .setImage(response.body.url)
       .setColor(`RANDOM`)
+      .setFooter(`Requested by ${message.author.username} & Powered by nekos.life`, message.author.avatarURL);
   message.channel.send(e);
         })
 }
