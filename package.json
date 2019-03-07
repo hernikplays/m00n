@@ -19,6 +19,7 @@
     "fortnite": "^4.1.1",
     "google-translate-api": "^2.3.0",
     "jimp": "^0.3.9",
+    "kaori": "^1.2.0",
     "libbase64": "^1.0.3",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",

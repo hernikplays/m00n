@@ -1,0 +1,7 @@
+{
+    "rule34.xxx": {
+        "aliases": ["r34"],
+        "endpoint": "index.php?page=post&s=view&",
+        "random": true
+    }
+}
