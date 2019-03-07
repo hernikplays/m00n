@@ -4,7 +4,10 @@ const neko = new nekoslife();
 
 module.exports.run = async (bot, message, args) => {
     const owo = bot.emojis.find("name", "blobowoevil");
-
+    if (talkedRecently.has(message.author.id)) {
+        return message.channel.send(`${message.author.username} please wait 5 seconds before using that command again!`);
+    }
+    else {
     if (!message.channel.nsfw) return message.reply("This command can only be used in NSFW channels!");
 
     let pic = await neko.getNSFWRandomHentaiGif();
@@ -17,7 +20,13 @@ module.exports.run = async (bot, message, args) => {
         .setImage(picGet)
         .setFooter(`Requested by ${message.author.username} & Powered by nekos.life`, message.author.avatarURL);
         message.channel.send(emb);
-  
+
+        talkedRecently.add(message.author.id); //cooldown
+        setTimeout(() => {
+          
+          talkedRecently.delete(message.author.id);
+        }, 5000);
+    }
   
 }
 
