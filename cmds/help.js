@@ -37,6 +37,7 @@ module.exports.run = async (bot, message, args) => {
           .addField("=== NSFW Commands ===", "Only in NSFW channels")
             .addField("hentai", "Hentai GIFs OwO")
             .addField("nekolewd","Sends a 'lewd' neko")
+            .addField("r34 <search term>","Searches rule34.xxx for images")
           .addField("=== Other Commands ===", "Unrelated")
           .addField("avatar [@user]")
             .addField("ev <e-mail>", "Checks if given e-mail is valid")
