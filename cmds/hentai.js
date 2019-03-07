@@ -1,6 +1,8 @@
 const Discord = module.require("discord.js");
 const nekoslife = require("nekos.life");
 const neko = new nekoslife();
+const talkedRecently = new Set();
+
 
 module.exports.run = async (bot, message, args) => {
     const owo = bot.emojis.find("name", "blobowoevil");

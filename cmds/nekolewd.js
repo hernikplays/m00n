@@ -1,5 +1,6 @@
 const Discord = module.require("discord.js");
 const superagent = require("snekfetch");
+const talkedRecently = new Set();
 
 module.exports.run = async (bot, message, args) => {
     if (talkedRecently.has(message.author.id)) {
