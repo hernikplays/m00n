@@ -4,7 +4,7 @@ const talkedRecently = new Set();
 
 module.exports.run = async (bot, message, args) => {
     if (talkedRecently.has(message.author.id)) {
-        return message.channel.send(`${message.author.username} please wait 3 seconds before using that command again!`);
+        return message.channel.send(`${message.author.username} please wait 2 seconds before using that command again!`);
     }
     else {
     if (!message.channel.nsfw) return message.channel.send('Holy potato! You are not in a NSFW channel!')
@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         setTimeout(() => {
           
           talkedRecently.delete(message.author.id);
-        }, 3000);
+        }, 2000);
     }
 }
 

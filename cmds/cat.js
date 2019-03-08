@@ -3,7 +3,7 @@ const Discord = module.require("discord.js");
 const superagent = require("superagent");
 module.exports.run = async (bot, message, args) => {
     if (talkedRecently.has(message.author.id)) {
-        return message.channel.send(`${message.author.username} please wait 5 seconds before using that command again!`);
+        return message.channel.send(`${message.author.username} please wait 2 seconds before using that command again!`);
     }
     else {
     let {
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         setTimeout(() => {
          
           talkedRecently.delete(message.author.id);
-        }, 5000);
+        }, 2000);
     }
 }
 

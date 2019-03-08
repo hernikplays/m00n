@@ -7,7 +7,7 @@ const talkedRecently = new Set();
 module.exports.run = async (bot, message, args) => {
     const owo = bot.emojis.find("name", "blobowoevil");
     if (talkedRecently.has(message.author.id)) {
-        return message.channel.send(`${message.author.username} please wait 5 seconds before using that command again!`);
+        return message.channel.send(`${message.author.username} please wait 2 seconds before using that command again!`);
     }
     else {
     if (!message.channel.nsfw) return message.reply("This command can only be used in NSFW channels!");
@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
         setTimeout(() => {
           
           talkedRecently.delete(message.author.id);
-        }, 5000);
+        }, 2000);
     }
   
 }
