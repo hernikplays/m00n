@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     const dogembed = new Discord.RichEmbed()
         .setTitle("Meow!")
         .setColor("RANDOM")
-        .setImage(result.body.url)
+        .setImage(result.body.file)
     message.channel.send(dogembed);
 });
 
