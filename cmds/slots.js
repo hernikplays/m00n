@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
       message.channel.send(wEmbed);
   } else {
       let embed = new Discord.RichEmbed()
-          .setFooter('You Lost!', aicon)
+          .setFooter('You Lost!', message.author.displayAvatarURL)
           .setTitle(':slot_machine:Slots:slot_machine:')
           .addField('Result', slots[result1] + slots[result2] + slots[result3], true)
           .setColor("#fc1414");
