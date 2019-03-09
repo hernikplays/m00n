@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
         unirest.get(`http://aws.random.cat/meow`)
         .header("Accept", "application/json")
         .end(function (result) {
-          console.log(result)
+          console.log(result.body)
           
         
     const dogembed = new Discord.RichEmbed()

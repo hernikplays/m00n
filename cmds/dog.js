@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
         unirest.get(`https://random.dog/woof.json`)
         .header("Accept", "application/json")
         .end(function (result) {
-            console.log(result)
+            console.log(result.body)
 
           
         
