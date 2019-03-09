@@ -6,16 +6,18 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send(`${message.author.username} please wait 2 seconds before using that command again!`);
     }
     else {
-    let {
-        body
-    } = await superagent
-        .get(`https://random.dog/woof.json`);
+        unirest.get(`https://random.dog/woof.json`)
+        .header("Accept", "application/json")
+        .end(function (result) {
+          
+          
+        
     const dogembed = new Discord.RichEmbed()
         .setTitle("Woof!")
         .setColor("RANDOM")
-        .setImage(body.url)
+        .setImage(result.body.url)
     message.channel.send(dogembed);
-
+});
     talkedRecently.add(message.author.id); //cooldown
         setTimeout(() => {
           
