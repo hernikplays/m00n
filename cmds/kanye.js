@@ -5,6 +5,7 @@ module.exports.run = async (bot, message, args) => {
     .header("Accept", "application/json")
     .end(function (result) {
       let e = new Discord.RichEmbed()
+      .setColor("#6eb51c")
       .addField("Here is your Kanye West quote: ", `**${result.body.quote}**`)
       .setFooter("Quotes from https://kanye.rest","https://kanye.rest/images/logo.png")
       message.channel.send(e);
