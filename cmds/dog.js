@@ -1,6 +1,6 @@
 const talkedRecently = new Set();
 const Discord = module.require("discord.js");
-const superagent = require("superagent");
+const unirest = require("unirest");
 module.exports.run = async (bot, message, args) => {
     if (talkedRecently.has(message.author.id)) {
         return message.channel.send(`${message.author.username} please wait 2 seconds before using that command again!`);
