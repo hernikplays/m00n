@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 
 module.exports.run = async (bot, message, args) => {
     if (talkedRecently.has(message.author.id)) {
-        return message.channel.send(`${message.author.username} please wait 15 seconds before using that command again!`);
+        return message.channel.send(`${message.author.username} please wait 1 second before using that command again!`);
     }
     
     let result = Math.floor((Math.random() * 4) + 0);
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
         setTimeout(() => {
          
           talkedRecently.delete(message.author.id);
-        }, 15000);
+        }, 1000);
     });
     return;
     }
