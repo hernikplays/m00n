@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
         setTimeout(() => {
           
           talkedRecently.delete(message.author.id);
-        }, 15000);
+        }, 1000);
     
     });
     return;
@@ -53,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
         setTimeout(() => {
           
           talkedRecently.delete(message.author.id);
-        }, 15000);
+        }, 1000);
     });
     return;
     }
@@ -70,7 +70,7 @@ module.exports.run = async (bot, message, args) => {
         setTimeout(() => {
          
           talkedRecently.delete(message.author.id);
-        }, 15000);
+        }, 1000);
     });
     return;
     }
