@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
   let result2 = Math.floor((Math.random() * slots.length));
   let result3 = Math.floor((Math.random() * slots.length));
 
-  if (slots[result1] === slots[result2] && slots[result3]) {
+  if (slots[result1] === slots[result2] && slots[result2] === slots[result3]) {
       let wEmbed = new Discord.RichEmbed()
           .setFooter("You Won!", message.author.displayAvatarURL)
           .setTitle(':slot_machine:Slots:slot_machine:')
