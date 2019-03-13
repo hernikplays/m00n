@@ -37,7 +37,6 @@
     "translate": "^1.0.3",
     "unirest": "^0.5.1",
     "weather-js": "^2.0.0",
-    "webhook-discord": "^2.3.0",
     "ytdl-core": "^0.24.0"
   }
 }

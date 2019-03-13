@@ -1,7 +1,5 @@
 const Discord = module.require("discord.js");
-const Webhook = require("webhook-discord")
- 
-const Hook = new Webhook(process.env.WBHK)
+
 module.exports.run = async (bot, message, args) => {
     
     if(!args[0]) return message.reply("You need to enter a location!");

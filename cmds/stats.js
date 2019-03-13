@@ -5,10 +5,9 @@ const m = require("moment-duration-format");
 let os = require('os')
 let cpuStat = require("cpu-stat")
 const ms = require("ms")
-const Webhook = require("webhook-discord")
  const DBL = require("dblapi.js")
 
-const Hook = new Webhook(process.env.WBHK)
+
 module.exports.run = async (bot, message, args) => {
     const dbl = new DBL(process.env.DBL_TKN, bot);
     dbl.on('posted', () => {
