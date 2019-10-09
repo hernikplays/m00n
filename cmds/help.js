@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
           let em2 = new Discord.RichEmbed()
           
           .setColor("#FFFF7F")
-          .addField("Help", "Full help avalible [here](https://jap.hernikplays.cz/doc/commands)")
+          .addField("Help", "Full help avalible [here](https://jap.hernikplays.cz/)")
            
             .setFooter(`Bot Prefix: ${theprefix} -- <required> [optional] -- Bot is no longer in development -- created by hernikplays#4673`)
             await message.channel.send(em2);
