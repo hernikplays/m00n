@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
       if (!args[0]) {
           const ghembed = new Discord.RichEmbed()
               .setColor(`RANDOM`)
-              .setTitle(`${blobwat} ${message.author.username} kiss themself...! (weirdo)`)
+              .setTitle(`${message.author.username} kiss themself...! (weirdo)`)
               .setImage('https://cdn.discordapp.com/attachments/452115003659780096/460369555823525898/kiss.gif')
           message.channel.send({
               embed: ghembed
@@ -42,7 +42,7 @@ module.exports.run = async (bot, message, args) => {
       if (!message.mentions.members.first().user.username === message.isMentioned(message.author)) {
           const hembed = new Discord.RichEmbed()
               .setColor(`RANDOM`)
-              .setTitle(`${kissblob} ${message.author.username} gave ${message.mentions.members.first().user.username} a kiss! How sweet!`)
+              .setTitle(`${message.author.username} gave ${message.mentions.members.first().user.username} a kiss! How sweet!`)
               .setImage(kiss[hugresult])
           message.channel.send({
               embed: hembed
@@ -51,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
       }
       const ghembed = new Discord.RichEmbed()
           .setColor(`RANDOM`)
-          .setTitle(`${blobwat} ${message.author.username} kissed themself...! (weirdo)`)
+          .setTitle(`${message.author.username} kissed themself...! (weirdo)`)
           .setImage('https://cdn.discordapp.com/attachments/452115003659780096/460369555823525898/kiss.gif')
       message.channel.send({
           embed: ghembed
