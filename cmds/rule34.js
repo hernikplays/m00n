@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         'r34',
         'e621'
     ]
-    var chooser34 = r34sites[Math.round(Math.random() * (fuckoff.length - 1))];
+    var chooser34 = r34sites[Math.round(Math.random() * (r34sites.length - 1))];
 
     kaori.search(chooser34, { tags: [search], limit: 1, random: true }).then(images => {
         let wem = new Discord.RichEmbed()
