@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
           .setColor("#FFFF7F")
           .addField("Help", "Full help avalible [here](https://jap.hernikplays.cz/)")
            
-            .setFooter(`Bot Prefix: ${theprefix} -- <required> [optional] -- Bot is no longer in development -- created by hernikplays#4673`)
+            .setFooter(`Bot Prefix: ${theprefix} -- <required> [optional] -- created by hernikplays#9617`)
             await message.channel.send(em2);
             
 }
