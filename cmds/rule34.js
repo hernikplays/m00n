@@ -13,8 +13,9 @@ module.exports.run = async(bot, message, args) => {
     let search = ask.replace(",", "");
 
     var r34sites = [
-        'r34xxx',
-        'r34paheal'
+        'r34',
+        'gelbooru',
+        'danbooru'
     ]
     var chooser34 = r34sites[Math.round(Math.random() * (r34sites.length - 1))];
     console.log(chooser34);
