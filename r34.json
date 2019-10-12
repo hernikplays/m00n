@@ -1,12 +1,7 @@
 {
     "rule34.xxx": {
-        "aliases": ["r34xxx"],
+        "aliases": ["r34"],
         "endpoint": "index.php?page=post&s=view&",
-        "random": true
-    },
-    "rule34.paheal.net": {
-        "aliases": ["r34paheal"],
-        "endpoint": "/post/view/",
         "random": true
     }
 }
