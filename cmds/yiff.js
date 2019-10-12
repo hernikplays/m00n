@@ -5,7 +5,6 @@ module.exports.run = async(bot, message, args) => {
     unirest.get(`https://sheri.bot/api/yiff/`)
         .header("Accept", "application/json")
         .end(function(result) {
-            console.log(result.body)
             let e = new Discord.RichEmbed()
                 .setTitle(`Here's your Yiff`)
                 .setImage(result.body.url)
