@@ -5,7 +5,7 @@ const moreSites = require('../r34.json');
 const kaori = new Kaori(moreSites);
 
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async(bot, message, args) => {
 
     if (!message.channel.nsfw) return message.channel.send(":no_entry: You need to be in a NSFW channel")
     if (!args[0]) return message.channel.send("🔍 You need to enter the search term!");
@@ -13,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
     let search = ask.replace(",", "");
 
     var r34sites = [
-        'r34',
-        'e621'
+        'r34xxx',
+        'r34paheal'
     ]
     var chooser34 = r34sites[Math.round(Math.random() * (r34sites.length - 1))];
     console.log(chooser34);
