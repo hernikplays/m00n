@@ -20,7 +20,9 @@ module.exports.run = async(bot, message, args) => {
     var server = servers[message.guild.id];
 
     if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
-    message.channel.send("Left the voice channel");
+    message.channel.send("Left the voice channel").then(msg => {
+        msg.delete(5000)
+    })
 
 }
 
