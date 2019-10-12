@@ -5,6 +5,7 @@ module.exports.run = async(bot, message, args) => {
     unirest.get(`https://api.ramfish.tk/porn`)
         .header("Accept", "application/json")
         .end(function(result) {
+            console.log(result.body)
             let e = new Discord.RichEmbed()
                 .setTitle(`Here's your Porn GIF`)
                 .setImage(result.body.url)
