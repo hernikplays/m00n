@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const talkedRecently = new Set();
 const Kaori = require('kaori');
-const moreSites = require('../r34.json');
+//const moreSites = require('../r34.json');
 const kaori = new Kaori(moreSites);
 
 
