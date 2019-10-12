@@ -14,8 +14,7 @@ module.exports.run = async(bot, message, args) => {
 
     var r34sites = [
         'r34',
-        'gelbooru',
-        'danbooru'
+        'gelbooru'
     ]
     var chooser34 = r34sites[Math.round(Math.random() * (r34sites.length - 1))];
     console.log(chooser34);
