@@ -26,7 +26,7 @@ fs.readdir("./cmds/", (err, files) => {
         bot.commands.set(props.help.name, props);
     });
 });
-
+// SERVER COUNT POST START
 bot.on("ready", async() => {
     unirest.post('https://botsfordiscord.com/api/bot/481894520741691393')
         .headers({ 'Accept': 'application/json', 'Content-Type': 'application/json' })
@@ -42,7 +42,7 @@ bot.on("ready", async() => {
         console.log(`Oops! ${e}`);
     })
     console.log("Bot is online!");
-
+    // SERVER COUNT POST END
 
 
 
