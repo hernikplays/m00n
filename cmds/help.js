@@ -1,5 +1,4 @@
 let Discord = module.require("discord.js");
-const theprefix = "m!" // Here it is just so I don't have to rewrite the footer
 module.exports.run = async(bot, message, args) => {
 
 
@@ -8,7 +7,7 @@ module.exports.run = async(bot, message, args) => {
     .setColor("#FFFF7F")
         .addField("Help", "Full help avalible [here](https://hernikplays.gitbook.io/m00n/list-of-commands)")
 
-    .setFooter(`Bot Prefix: ${theprefix} -- created by hernikplays#9617 -- Report errors with m!report`)
+    .setFooter(`Bot Prefix: m! -- created by hernikplays#9617 -- Report errors with m!report`)
     await message.channel.send(em2);
 
 }
