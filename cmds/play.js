@@ -9,7 +9,6 @@ module.exports.run = async (bot, message, args, ops) => {
     let validate = await YTDL.validateURL(args[0]);
     if (!validate) return message.reply("Please enter a **valid** YouTube URL");
     let info = await YTDL.getInfo(args[0]);
-    console.log(info.player_response.videoDetails.title)
     let data = ops.active.get(message.guild.id) || {}
     if (!data.connection) data.connection = await message.member.voiceChannel.join()
     if (!data.queue) data.queue = [];
