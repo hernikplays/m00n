@@ -22,7 +22,7 @@ module.exports.run = async(bot, message, args, ops) => {
 
     
     if (message.guild.voiceConnection) {            
-        let vc = bot.guilds.get(dispatcher.guildID).me.voiceChannel
+        let vc = bot.guilds.get(data.dispatcher.guildID).me.voiceChannel
         if(vc) vc.leave();
         ops.active.delete(dispatcher.guildID)
         ops.queue.clear()
