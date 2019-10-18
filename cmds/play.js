@@ -15,14 +15,14 @@ module.exports.run = async (bot, message, args, ops) => {
     if (!data.queue) data.queue = [];
     data.guildID = message.guild.id
     data.queue.push({
-        songTitle: info.title,
-        requestedBy: message.author.tag,
+        songTitle: info.player_response.videoDetails.title,
+        requestedBy: message.author.username,
         url: args[0],
         announceChannel: message.channel.id
     })
     if(!data.dispatcher) play(bot, ops, data)
     else{
-        message.channel.send(`Added **${info.title} to the queue / Requested by ${message.author.id}`)
+        message.channel.send(`Added **${info.player_response.videoDetails.title} to the queue / Requested by ${message.author.username}`)
     }
     ops.active.set(message.guild.id, data)
 
