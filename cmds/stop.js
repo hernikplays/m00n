@@ -3,7 +3,7 @@ const YTDL = require("ytdl-core");
 var servers = {};
 
 
-module.exports.run = async(bot, message, args) => {
+module.exports.run = async(bot, message, args, ops) => {
     if (!message.author.id == "145973959127597057") return message.reply("This command is currently in beta. But you can donate to my patreon https://patreon.com/hernikplays and get access!")
     if(!message.guild.voiceConnection) return message.reply("I am not in a voice channel")
     function play(connection, message) {
@@ -19,10 +19,18 @@ module.exports.run = async(bot, message, args) => {
     }
     var server = servers[message.guild.id];
 
-    if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
-    message.channel.send("Left the voice channel").then(msg => {
-        msg.delete(5000)
-    })
+
+    
+    if (message.guild.voiceConnection) {            
+        let vc = bot.guilds.get(dispatcher.guildID).me.voiceChannel
+        if(vc) vc.leave();
+        ops.active.delete(dispatcher.guildID)
+        ops.queue.clear()
+        message.channel.send("Left the voice channel").then(msg => {
+            msg.delete(5000)
+        })
+    }
+    
 
 }
 
