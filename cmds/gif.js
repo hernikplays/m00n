@@ -3,6 +3,7 @@ const unirest = require("unirest")
 module.exports.run = async (bot, message, args) => {
 
     unirest.get(`api.giphy.com/v1/gifs/random`)
+        .header("api-key", process.env.GIPHY)
         .header("Accept", "application/json")
         .end(function (result) {
             console.log(result.body)
