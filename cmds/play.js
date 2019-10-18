@@ -1,21 +1,52 @@
 const Discord = require("discord.js");
 const YTDL = require("ytdl-core");
-var servers = {};
 
-
-
-module.exports.run = async(bot, message, args) => {
+module.exports.run = async (bot, message, args, ops) => {
     if (!message.author.id == "145973959127597057") return message.reply("This command is currently in beta. But you can donate to my patreon https://patreon.com/hernikplays and get access!")
     if (!args[0]) return message.reply("You need to send a YouTube link!");
     if (!message.member.voiceChannel) return message.reply("Music is better played from a voice channel! Please join one first!");
+    //if (message.guild.me.voiceChannel) return message.reply("Sorry, I am already connected to a voice channel")
     let validate = await YTDL.validateURL(args[0]);
-    if (!validate) return message.reply("Please enter a valid URL");
+    if (!validate) return message.reply("Please enter a **valid** YouTube URL");
     let info = await YTDL.getInfo(args[0]);
-    let connection = await message.member.voiceChannel.join();
-    message.channel.send(`Now playing: ${info.title}`);
-    let dispatcher = await connection.playStream(YTDL(args[0], { filter: "audioonly" }))
-    .catch(err => message.channel.send(`:exclamation: There was an error while trying to play the song: ${err}`));
+    let data = ops.active.get(message.guild.id) || {}
+    if (!data.connection) data.connection = await message.member.voiceChannel.join()
+    if (!data.queue) data.queue = [];
+    data.guildID = message.guild.id
+    data.queue.push({
+        songTitle: info.title,
+        requestedBy: message.author.tag,
+        url: args[0],
+        announceChannel: message.channel.id
+    })
+    if(!data.dispatcher) play(client, ops, data)
+    else{
+        message.channel.send(`Added **${info.title} to the queue / Requested by ${message.author.id}`)
+    }
+    ops.active.set(message.guild.id, data)
 
+    async function play(bot,ops,data){
+        clientInformation.channels.get(data.queue[0].announceChannel).send(`Now playing: ${data.queue[0].songTitle} / Requested by ${data.queue[0].requestedBy}`)
+        data.dispatcher = await data.connection.play(YTDL(data.queue[0].url, {filter: 'audioonly'}))
+        data.dispatcher.guildID = data.guildID
+        data.dispatcher.once('finish', function(){
+            finish(bot,ops,this)
+        })
+    }
+
+    function finish(bot, ops, dispatcher){
+        let fetched = ops.active.get(dispatcher.guildID)
+        fetched.queue.shift();
+        if(fetched.queue.length > 0){
+            ops.active.set(dispatcher.guildID, fetched)
+            play(client, ops, fetched)
+        }else{
+            ops.active.delete(dispatcher.guildID)
+            let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel
+            if(vc) vc.leave();
+
+        }
+    }
 }
 
 module.exports.help = {

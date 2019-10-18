@@ -6,6 +6,8 @@ const DBL = require("dblapi.js") //discordbotlist API
 const dbl = new DBL(process.env.DBL_TKN, bot);
 const unirest = require("unirest") //used to access botsfordiscord.com API
 
+const active = new Map();
+
 bot.commands = new Discord.Collection();
 
 
@@ -65,9 +67,11 @@ bot.on("message", async message => {
 
     let cmd = bot.commands.get(command.slice(prefix.length));
 
-
+    let musicOps = {
+        active: active
+    }
     if (cmd) {
-        cmd.run(bot, message, args);
+        cmd.run(bot, message, args, musicOps);
 
     }
 
