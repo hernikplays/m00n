@@ -13,7 +13,8 @@ module.exports.run = async(bot, message, args) => {
     let info = await YTDL.getInfo(args[0]);
     let connection = await message.member.voiceChannel.join();
     message.channel.send(`Now playing: ${info.title}`);
-    let dispatcher = await connection.playStream(YTDL(args[0], { filter: "audioonly" }));
+    let dispatcher = await connection.playStream(YTDL(args[0], { filter: "audioonly" }))
+    .catch(err => message.channel.send(`:exclamation: There was an error while trying to play the song: ${err}`));
 
 }
 
