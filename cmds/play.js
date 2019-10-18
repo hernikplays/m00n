@@ -19,14 +19,14 @@ module.exports.run = async (bot, message, args, ops) => {
         url: args[0],
         announceChannel: message.channel.id
     })
-    if(!data.dispatcher) play(client, ops, data)
+    if(!data.dispatcher) play(bot, ops, data)
     else{
         message.channel.send(`Added **${info.title} to the queue / Requested by ${message.author.id}`)
     }
     ops.active.set(message.guild.id, data)
 
     async function play(bot,ops,data){
-        clientInformation.channels.get(data.queue[0].announceChannel).send(`Now playing: ${data.queue[0].songTitle} / Requested by ${data.queue[0].requestedBy}`)
+        bot.channels.get(data.queue[0].announceChannel).send(`Now playing: ${data.queue[0].songTitle} / Requested by ${data.queue[0].requestedBy}`)
         data.dispatcher = await data.connection.play(YTDL(data.queue[0].url, {filter: 'audioonly'}))
         data.dispatcher.guildID = data.guildID
         data.dispatcher.once('finish', function(){
@@ -39,10 +39,10 @@ module.exports.run = async (bot, message, args, ops) => {
         fetched.queue.shift();
         if(fetched.queue.length > 0){
             ops.active.set(dispatcher.guildID, fetched)
-            play(client, ops, fetched)
+            play(bot, ops, fetched)
         }else{
             ops.active.delete(dispatcher.guildID)
-            let vc = client.guilds.get(dispatcher.guildID).me.voiceChannel
+            let vc = bot.guilds.get(dispatcher.guildID).me.voiceChannel
             if(vc) vc.leave();
 
         }
