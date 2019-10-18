@@ -9,6 +9,7 @@ module.exports.run = async (bot, message, args, ops) => {
     let validate = await YTDL.validateURL(args[0]);
     if (!validate) return message.reply("Please enter a **valid** YouTube URL");
     let info = await YTDL.getInfo(args[0]);
+    console.log(info)
     let data = ops.active.get(message.guild.id) || {}
     if (!data.connection) data.connection = await message.member.voiceChannel.join()
     if (!data.queue) data.queue = [];
@@ -27,9 +28,9 @@ module.exports.run = async (bot, message, args, ops) => {
 
     async function play(bot,ops,data){
         bot.channels.get(data.queue[0].announceChannel).send(`Now playing: ${data.queue[0].songTitle} / Requested by ${data.queue[0].requestedBy}`)
-        data.dispatcher = await data.connection.play(YTDL(data.queue[0].url, {filter: 'audioonly'}))
+        data.dispatcher = await data.connection.playStream(YTDL(data.queue[0].url, {filter: 'audioonly'}))
         data.dispatcher.guildID = data.guildID
-        data.dispatcher.once('finish', function(){
+        data.dispatcher.once('finished', function(){
             finish(bot,ops,this)
         })
     }
