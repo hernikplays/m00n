@@ -9,13 +9,10 @@ module.exports.run = async (bot, message, args, ops) => {
     let nowPlaying = queue[0]
 
     let resp = `**Now Playing**\n${nowPlaying.songTitle}\n**Requested by:**\n${nowPlaying.requestedBy}\n\n**Server Queue:**\n`
-    new Discord.RichEmbed()
-    .addField("**Now Playing**", nowPlaying.songTitle)
-    .addField("**Requested by:**", nowPlaying.requestedBy)
-    .addField("Next in server queue", "\u200B")
+    
 
     for (var i = 1; i < queue.length; i++){
-        resp += .addField(`${i}. ${queue[i].songTitle}`, `Requested by: ${queue[i].requestedBy}`)
+        resp += `${i}. ${queue[i].songTitle} - Requested by: ${queue[i].requestedBy}\n`
     }
 
     message.channel.send(resp)
