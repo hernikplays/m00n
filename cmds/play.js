@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args, ops) => {
     })
     if(!data.dispatcher) play(bot, ops, data)
     else{
-        message.channel.send(`Added **${info.player_response.videoDetails.title} to the queue / Requested by ${message.author.username}`)
+        message.channel.send(`Added **${info.player_response.videoDetails.title}** to the queue / Requested by ${message.author.username}`)
     }
     ops.active.set(message.guild.id, data)
 
@@ -42,10 +42,9 @@ module.exports.run = async (bot, message, args, ops) => {
             ops.active.set(dispatcher.guildID, fetched)
             play(bot, ops, fetched)
         }else{
-            ops.active.delete(dispatcher.guildID)
             let vc = bot.guilds.get(dispatcher.guildID).me.voiceChannel
             if(vc) vc.leave();
-
+            ops.active.delete(dispatcher.guildID)
         }
     }
 }
