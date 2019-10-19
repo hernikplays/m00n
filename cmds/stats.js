@@ -19,7 +19,7 @@ module.exports.run = async(bot, message, args) => {
     })
     cpuStat.usagePercent(function(err, percent, seconds) {
         if (err) {
-            return Hook.err(`There was an error in the stats command: ${err}`, "JustAPotato");
+            return message.reply(`There was an error in the stats command: ${err}`);
         }
         const duration = moment.duration(bot.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
         const embedStats = new Discord.RichEmbed()
