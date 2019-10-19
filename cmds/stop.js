@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args, ops) => {
     if (message.guild.voiceConnection) {
         message.guild.me.voiceChannel.leave();
         message.channel.send(":arrow_right: Left the channel")
-        fetched.dispatcher.emit('finish')
+        return fetched.dispatcher.emit('finish')
 
     }
 }
