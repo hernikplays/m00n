@@ -12,13 +12,8 @@ module.exports.run = async(bot, message, args) => {
     let ask = args.toString();
     let search = ask.replace(",", "");
 
-    var r34sites = [
-        'r34',
-        'gelbooru'
-    ]
-    var chooser34 = r34sites[Math.round(Math.random() * (r34sites.length - 1))];
-    console.log(chooser34);
-    kaori.search(chooser34, {
+
+    kaori.search("r34", {
             tags: [search],
             limit: 1,
             random: true
