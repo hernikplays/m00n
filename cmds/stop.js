@@ -4,34 +4,13 @@ var servers = {};
 
 
 module.exports.run = async(bot, message, args, ops) => {
-    if (!message.author.id == "145973959127597057") return message.reply("This command is currently in beta. But you can donate to my patreon https://patreon.com/hernikplays and get access!")
-    if(!message.guild.voiceConnection) return message.reply("I am not in a voice channel")
-    let data = ops.active.get(message.guild.id) || {}
-
-    function play(connection, message) {
-        var server = server[message.guild.id];
-        server.dispatcher = connection.playStream(YTDL(server.queue[0], { filter: "audioonly" }));
-
-        server.queue.shift();
-
-        server.dispatcher.on("end", function() {
-            if (server.queue[0]) play(connection, message);
-            else connection.disconnect;
-        });
-    }
-    var server = servers[message.guild.id];
-
-
+    if (!message.author.id == "145973959127597057") return message.reply(":x: This command is currently in beta. But you can donate to my patreon https://patreon.com/hernikplays and get access!")
+    if(!message.guild.voiceConnection) return message.reply(":x: I am not in a voice channel")
+    if(!message.guild.me.voiceChannel) return message.reply(":x: There was an error while processing your request")
+    if(message.guild.me.voiceChannelID !== message.member.voiceChannelID) return message.reply(":x: You have to be in the same voice channel as me.")
     
-    if (message.guild.voiceConnection) {            
-        let vc = bot.guilds.get(data.dispatcher.guildID).me.voiceChannel
-        if(vc) vc.leave();
-        ops.active.delete(dispatcher.guildID)
-        ops.queue.clear()
-        message.channel.send("Left the voice channel").then(msg => {
-            msg.delete(5000)
-        })
-    }
+    message.guild.me.voiceChannel.leave();
+    
     
 
 }
