@@ -1,6 +1,15 @@
 const Discord = require("discord.js");
 const YTDL = require("ytdl-core");
-
+let addEm = new Discord.RichPresence()
+    .setColor("YELLOW")
+    .addField("Added to queue: ", info.player_response.videoDetails.title)
+    .addField("Requested by:", message.author.username)
+    .setFooter(`Requested at ${this.timestamp}`)
+let playingEm = new Discord.RichPresence()
+    .setColor("GREEN")
+    .addField("Now playing: ", data.queue[0].songTitle)
+    .addField("Requested by:", data.queue[0].requestedBy)
+    .setFooter(`Requested at ${this.timestamp}`)
 module.exports.run = async (bot, message, args, ops) => {
     if (!message.author.id == "145973959127597057") return message.reply("This command is currently in beta. But you can donate to my patreon https://patreon.com/hernikplays and get access!")
     if (!args[0]) return message.reply("You need to send a YouTube link!");
@@ -21,21 +30,13 @@ module.exports.run = async (bot, message, args, ops) => {
     })
     if (!data.dispatcher) play(bot, ops, data)
     else {
-        let addEm = new Discord.RichPresence()
-            .setColor("YELLOW")
-            .addField("Added to queue: ", info.player_response.videoDetails.title)
-            .addField("Requested by:", message.author.username)
-            .setFooter(`Requested at ${this.timestamp}`)
+
         message.channel.send(addEm)
     }
     ops.active.set(message.guild.id, data)
 
     async function play(bot, ops, data) {
-        let playingEm = new Discord.RichPresence()
-            .setColor("GREEN")
-            .addField("Now playing: ", data.queue[0].songTitle)
-            .addField("Requested by:", data.queue[0].requestedBy)
-            .setFooter(`Requested at ${this.timestamp}`)
+
         bot.channels.get(data.queue[0].announceChannel).send(playingEm)
         data.dispatcher = await data.connection.playStream(YTDL(data.queue[0].url, {
             filter: 'audioonly'
