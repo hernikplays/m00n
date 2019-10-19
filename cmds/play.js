@@ -46,6 +46,7 @@ module.exports.run = async (bot, message, args, ops) => {
             filter: 'audioonly'
         }))
         data.dispatcher.guildID = data.guildID
+        console.log(Math.round(bot.ping + "ms"))
         data.dispatcher.once('finished', function () {
             finish(bot, ops, this)
         })
