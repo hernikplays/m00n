@@ -61,7 +61,7 @@ module.exports.run = async (bot, message, args, ops) => {
             let vc = bot.guilds.get(dispatcher.guildID).me.voiceChannel
             if (vc) vc.leave();
             ops.active.delete(dispatcher.guildID)
-            ops.queue.clear()
+            ops.queue.delete(dispatcher.guildID)
         }
     }
 }
