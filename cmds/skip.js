@@ -49,18 +49,18 @@ module.exports.run = async (bot, message, args, ops) => {
 
     if (fetched.queue[0].voteSkips.length <= required) {
         let skipped = new Discord.RichEmbed()
-        .setColor("#77B254")
-        .addField(":white_check_mark: Skipped", `Succesfully skipped **${fetched.queue[0].songTitle}**`)
-        .setTimestamp(new Date())
+            .setColor("#77B254")
+            .addField(":white_check_mark: Skipped", `Succesfully skipped **${fetched.queue[0].songTitle}**`)
+            .setTimestamp(new Date())
         message.channel.send(skipped).then(msg => {
             msg.delete(8000)
         })
         return fetched.dispatcher.emit('finish')
     }
     let sucVote = new Discord.RichEmbed()
-    .setColor("#77B254")
-    .addField(":white_check_mark: Success", `Succesfully voted to skip **${fetched.queue[0].songTitle}** - ${fetched.queue[0].voteSkips.length}/${required} required users`)
-    .setTimestamp(new Date())
+        .setColor("#77B254")
+        .addField(":white_check_mark: Success", `Succesfully voted to skip **${fetched.queue[0].songTitle}** - ${fetched.queue[0].voteSkips.length}/${required} required users`)
+        .setTimestamp(new Date())
 
     message.channel.send(sucVote)
 
