@@ -30,7 +30,18 @@ module.exports.run = async(bot, message, args) => {
                 .setFooter(`Requested by ${message.author.username}`, "https://images.emojiterra.com/twitter/v12/512px/1f51e.png")
             message.channel.send(wem);
         })
-        .catch(err => message.channel.send(`There was an error while processing your request: ${err}`));
+        .catch(err => {
+            let notfound = new Discord.RichEmbed()
+            .addField(":x: Error", "Cannot find any images, try another word")
+            .setTimestamp(new Date())
+            .setColor("#fc2828")
+
+
+            if(err == "TypeError: Cannot read property 'common' of undefined") return message.channel.send(notfound)
+
+            message.channel.send(`There was an error while processing your request: ${err}`)
+            
+        });
 
 
 }
