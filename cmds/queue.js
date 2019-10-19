@@ -3,7 +3,12 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args, ops) => {
     if (!message.author.id == "145973959127597057") return message.reply("This command is currently in beta. But you can donate to my patreon https://patreon.com/hernikplays and get access!")
     let fetched = ops.active.get(message.guild.id)
-    if(!fetched) return message.reply("There isn't any music playing in this server.")
+    
+    let nomusic = new Discord.RichEmbed()
+    .addField(":x: Error", "There is no music playing in this server")
+    .setColor("#fc2828")
+    .setTimestamp(new Date())
+    if(!fetched) return message.channel.send(nomusic)
 
     let queue = fetched.queue
     let nowPlaying = queue[0]
