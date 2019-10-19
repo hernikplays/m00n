@@ -19,30 +19,42 @@ module.exports.run = async (bot, message, args, ops) => {
         url: args[0],
         announceChannel: message.channel.id
     })
-    if(!data.dispatcher) play(bot, ops, data)
-    else{
-        message.channel.send(`Added **${info.player_response.videoDetails.title}** to the queue / Requested by ${message.author.username}`)
+    if (!data.dispatcher) play(bot, ops, data)
+    else {
+        let addEm = new Discord.RichPresence()
+            .setColor("YELLOW")
+            .addField("Added to queue: ", info.player_response.videoDetails.title)
+            .addField("Requested by:", message.author.username)
+            .setFooter(`Requested at ${this.timestamp}`)
+        message.channel.send(addEm)
     }
     ops.active.set(message.guild.id, data)
 
-    async function play(bot,ops,data){
-        bot.channels.get(data.queue[0].announceChannel).send(`Now playing: ${data.queue[0].songTitle} / Requested by ${data.queue[0].requestedBy}`)
-        data.dispatcher = await data.connection.playStream(YTDL(data.queue[0].url, {filter: 'audioonly'}))
+    async function play(bot, ops, data) {
+        let playingEm = new Discord.RichPresence()
+            .setColor("GREEN")
+            .addField("Now playing: ", data.queue[0].songTitle)
+            .addField("Requested by:", data.queue[0].requestedBy)
+            .setFooter(`Requested at ${this.timestamp}`)
+        bot.channels.get(data.queue[0].announceChannel).send(playingEm)
+        data.dispatcher = await data.connection.playStream(YTDL(data.queue[0].url, {
+            filter: 'audioonly'
+        }))
         data.dispatcher.guildID = data.guildID
-        data.dispatcher.once('finished', function(){
-            finish(bot,ops,this)
+        data.dispatcher.once('finished', function () {
+            finish(bot, ops, this)
         })
     }
 
-    function finish(bot, ops, dispatcher){
+    function finish(bot, ops, dispatcher) {
         let fetched = ops.active.get(dispatcher.guildID)
         fetched.queue.shift();
-        if(fetched.queue.length > 0){
+        if (fetched.queue.length > 0) {
             ops.active.set(dispatcher.guildID, fetched)
             play(bot, ops, fetched)
-        }else{
+        } else {
             let vc = bot.guilds.get(dispatcher.guildID).me.voiceChannel
-            if(vc) vc.leave();
+            if (vc) vc.leave();
             ops.active.delete(dispatcher.guildID)
             ops.queue.clear()
         }
