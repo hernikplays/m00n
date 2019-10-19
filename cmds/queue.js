@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args, ops) => {
     let fetched = ops.active.get(message.guild.id)
     if(!message.guild.me.voiceChannel) {
         message.reply("I am not in a voice channel")
-        return fetched.dispatcher.emit('finish')
+        return fetched.dispatcher.emit('finish').catch(err => message.channel.send(err))
 
     }
     let nomusic = new Discord.RichEmbed()
