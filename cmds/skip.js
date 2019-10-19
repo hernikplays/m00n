@@ -2,15 +2,6 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, ops) => {
     let fetched = ops.active.get(message.guild.id)
-    //Embeds
-
-
-
-
- 
-
-
-    //Embeds done
 
     if (!fetched) {
         let nomusic = new Discord.RichEmbed()
