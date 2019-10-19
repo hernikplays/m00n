@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args, ops) => {
     if(message.guild.me.voiceChannelID !== message.member.voiceChannelID) return message.reply(":x: You have to be in the same voice channel as me.")
     
     message.guild.me.voiceChannel.leave();
-    
+    message.channel.send(":arrow_right: Left the channel")
     
 
 }

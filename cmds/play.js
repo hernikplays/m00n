@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args, ops) => {
     })
 
     let addEm = new Discord.RichEmbed()
-        .setColor("YELLOW")
+        .setColor("#ebe134")
         .addField("Added to queue: ", info.player_response.videoDetails.title)
         .addField("Requested by:", message.author.username)
         .setTimestamp(new Date())
