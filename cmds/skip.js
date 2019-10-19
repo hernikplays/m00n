@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args, ops) => {
+    let fetched = ops.active.get(message.guild.id)
+
     //Embeds
     let nomusic = new Discord.RichEmbed()
         .addField(":x: Error", "There is no music playing in this server.")
@@ -23,7 +25,6 @@ module.exports.run = async (bot, message, args, ops) => {
         .setColor("#77B254")
         .addField(":white_check_mark: Skipped", `Succesfully skipped **${fetched.queue[0].songTitle}**`)
     //Embeds done
-    let fetched = ops.active.get(message.guild.id)
 
 
     if (!fetched) return message.channel.send(nomusic).then(msg => {
