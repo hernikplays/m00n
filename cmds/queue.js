@@ -3,11 +3,8 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args, ops) => {
     if (!message.author.id == "145973959127597057") return message.reply("This command is currently in beta. But you can donate to my patreon https://patreon.com/hernikplays and get access!")
     let fetched = ops.active.get(message.guild.id)
-    if(!message.guild.me.voiceChannel) {
-        message.reply("I am not in a voice channel")
-        return fetched.dispatcher.emit('finish').catch(err => message.channel.send(err))
-
-    }
+    if(!message.guild.me.voiceChannel) return message.reply("I am not in a voice channel")
+        
     let nomusic = new Discord.RichEmbed()
     .addField(":x: Error", "There is no music playing in this server")
     .setColor("#fc2828")

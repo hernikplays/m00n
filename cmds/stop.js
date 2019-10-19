@@ -11,12 +11,12 @@ module.exports.run = async (bot, message, args, ops) => {
     if (!message.guild.me.voiceChannel) return message.reply(":x: There was an error while processing your request")
     if (message.guild.me.voiceChannelID !== message.member.voiceChannelID) return message.reply(":x: You have to be in the same voice channel as me.")
 
-    if (message.guild.voiceConnection) {
+    
         message.guild.me.voiceChannel.leave();
         message.channel.send(":arrow_right: Left the channel")
         return fetched.dispatcher.emit('finish')
 
-    }
+    
 }
 
 module.exports.help = {
