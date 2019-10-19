@@ -21,12 +21,12 @@ module.exports.run = async (bot, message, args, ops) => {
         announceChannel: message.channel.id
     })
 
-    let addEm = new Discord.RichPresence()
+    let addEm = new Discord.RichEmbed()
         .setColor("YELLOW")
         .addField("Added to queue: ", info.player_response.videoDetails.title)
         .addField("Requested by:", message.author.username)
         .setTimestamp(new Date())
-    let playingEm = new Discord.RichPresence()
+    let playingEm = new Discord.RichEmbed()
         .setColor("GREEN")
         .addField("Now playing: ", data.queue[0].songTitle)
         .addField("Requested by:", data.queue[0].requestedBy)
