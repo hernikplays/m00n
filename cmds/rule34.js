@@ -9,8 +9,6 @@ const kaori = new Kaori();
 module.exports.run = async (bot, message, args) => {
     const dbl = new DBL(process.env.DBL_TKN, bot);
 
-
-    console.log(dbl.hasVoted(message.author.id))
     dbl.hasVoted(message.author.id).then(voted => {
         let upem = new Discord.RichEmbed()
             .addField(`:x: Error`, "Please upvote the bot [here](https://top.gg/bot/481894520741691393/vote) to use this command for the next 24hrs. **Upvoting is free**")
