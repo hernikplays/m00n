@@ -7,12 +7,14 @@ const DBL = require("dblapi.js") //discordbotlist API
 const kaori = new Kaori();
 
 
-module.exports.run = async(bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
     const dbl = new DBL(process.env.DBL_TKN, bot);
     let upem = new Discord.RichEmbed()
-                .addField(`:x: Error`, "Please upvote us [here](https://top.gg/bot/481894520741691393/vote) to use this command for the next 24hrs. **Upvoting is free**")
-                .setColor("#fc1414")
-    if(!dbl.hasVoted(message.author.id)) return message.channel.send(upem)
+        .addField(`:x: Error`, "Please upvote us [here](https://top.gg/bot/481894520741691393/vote) to use this command for the next 24hrs. **Upvoting is free**")
+        .setColor("#fc1414")
+        
+    console.log(dbl.hasVoted(message.author.id))
+    if (dbl.hasVoted(message.author.id) == false) return message.channel.send(upem)
 
     if (!message.channel.nsfw) return message.channel.send(":no_entry: You need to be in a NSFW channel")
     if (!args[0]) return message.channel.send("🔍 You need to enter the search term!");
@@ -34,15 +36,15 @@ module.exports.run = async(bot, message, args) => {
         })
         .catch(err => {
             let notfound = new Discord.RichEmbed()
-            .addField(":x: Error", "Cannot find any images, try another word")
-            .setTimestamp(new Date())
-            .setColor("#fc2828")
+                .addField(":x: Error", "Cannot find any images, try another word")
+                .setTimestamp(new Date())
+                .setColor("#fc2828")
 
 
-            if(err == "TypeError: Cannot read property 'common' of undefined") return message.channel.send(notfound)
+            if (err == "TypeError: Cannot read property 'common' of undefined") return message.channel.send(notfound)
 
             message.channel.send(`There was an error while processing your request: ${err}`)
-            
+
         });
 
 
