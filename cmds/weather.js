@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     
-    if(!args[0]) return message.reply("You need to enter a location!");
+    if(!args[0]) return message.reply(":x: You need to enter a location!");
     if(!args[1]){
         let nope = args.join(' ');
         let wem = new Discord.RichEmbed()
