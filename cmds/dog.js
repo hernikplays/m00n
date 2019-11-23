@@ -9,10 +9,7 @@ module.exports.run = async (bot, message, args) => {
         unirest.get(`https://random.dog/woof.json`)
         .header("Accept", "application/json")
         .end(function (result) {
-            console.log(result.body)
 
-          
-        
     const dogembed = new Discord.RichEmbed()
         .setTitle("Woof!")
         .setColor("RANDOM")

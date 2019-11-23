@@ -16,7 +16,7 @@ module.exports.run = async(bot, message, args) => {
         .headers({ 'Accept': 'application/json', 'Content-Type': 'application/json' })
         .send({ "count": bot.guilds.size, "Authorization": process.env.BFD_TKN })
         .end(function(response) {
-            console.log("It worked hopefully");
+            console.log("Server count posted to B4D");
         });
     // SERVER COUNT POST END
     let m = await message.channel.send("Pinging...");
