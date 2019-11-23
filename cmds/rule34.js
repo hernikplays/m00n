@@ -9,17 +9,16 @@ const kaori = new Kaori();
 
 module.exports.run = async (bot, message, args) => {
     const dbl = new DBL(process.env.DBL_TKN, bot);
-    let upem = new Discord.RichEmbed()
+    
+
+    console.log(dbl.hasVoted(message.author.id))
+    dbl.hasVoted(message.author.id).then(voted =>{
+        let upem = new Discord.RichEmbed()
         .addField(`:x: Error`, "Please upvote us [here](https://top.gg/bot/481894520741691393/vote) to use this command for the next 24hrs. **Upvoting is free**")
         .setColor("#fc1414")
-    console.log(dbl.hasVoted(message.author.id))
-    var hasVoted = dbl.hasVoted(message.author.id).then(voted =>{
+        if(!voted) return message.channel.send(upem)
         
-        return voted;
-    })
-    if(hasVoted == false) return message.channel.send(upem);
-
-    if (!message.channel.nsfw) return message.channel.send(":no_entry: You need to be in a NSFW channel")
+        if (!message.channel.nsfw) return message.channel.send(":no_entry: You need to be in a NSFW channel")
     if (!args[0]) return message.channel.send("🔍 You need to enter the search term!");
     let ask = args.toString();
     let search = ask.replace(",", "");
@@ -49,6 +48,9 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send(`There was an error while processing your request: ${err}`)
 
         });
+    })
+
+    
 
 
 }
