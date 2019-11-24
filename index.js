@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
-const bot = new Discord.Client({ disableEveryone: true });
+const bot = new Discord.Client({
+    disableEveryone: true
+});
 const fs = require("fs");
 const prefix = "m!"; //change to your prefix
 const DBL = require("dblapi.js") //discordbotlist API
 const dbl = new DBL(process.env.DBL_TKN, bot);
 const unirest = require("unirest") //used to access botsfordiscord.com API
-
-const active = new Map();
 
 bot.commands = new Discord.Collection();
 
@@ -29,11 +29,17 @@ fs.readdir("./cmds/", (err, files) => {
     });
 });
 // SERVER COUNT POST START
-bot.on("ready", async() => {
+bot.on("ready", async () => {
     unirest.post('https://botsfordiscord.com/api/bot/481894520741691393')
-        .headers({ 'Accept': 'application/json', 'Content-Type': 'application/json' })
-        .send({ "count": bot.guilds.size, "Authorization": process.env.BFD_TKN })
-        .end(function(response) {
+        .headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        })
+        .send({
+            "count": bot.guilds.size,
+            "Authorization": process.env.BFD_TKN
+        })
+        .end(function (response) {
             console.log("It worked hopefully");
         });
     dbl.on('posted', () => {
@@ -48,7 +54,9 @@ bot.on("ready", async() => {
 
 
 
-    bot.user.setActivity(`the sky in ${bot.guilds.size} servers // m!help`, { type: 'WATCHING' });
+    bot.user.setActivity(`the sky in ${bot.guilds.size} servers // m!help`, {
+        type: 'WATCHING'
+    });
 });
 
 bot.on("message", async message => {
@@ -67,11 +75,9 @@ bot.on("message", async message => {
 
     let cmd = bot.commands.get(command.slice(prefix.length));
 
-    let musicOps = {
-        active: active
-    }
+
     if (cmd) {
-        cmd.run(bot, message, args, musicOps);
+        cmd.run(bot, message, args);
 
     }
 
