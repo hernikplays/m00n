@@ -1,7 +1,7 @@
 # m00n
 m00n is a continuation of my old discord entertainment bot
 
-![GitHub repo size](https://img.shields.io/github/repo-size/hernikplays/m00n) [![CodeFactor](https://www.codefactor.io/repository/github/hernikplays/m00n/badge)](https://www.codefactor.io/repository/github/hernikplays/m00n) 
+![GitHub repo size](https://img.shields.io/github/repo-size/hernikplays/m00n) [![CodeFactor](https://www.codefactor.io/repository/github/hernikplays/m00n/badge)](https://www.codefactor.io/repository/github/hernikplays/m00n) [![Maintained](https://img.shields.io/maintenance/yes/2020)](https://github.com/hernikplays/m00n/releases/latest)
 
 ## Request features in [issues](https://github.com/hernikplays/m00n/issues)
 
