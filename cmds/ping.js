@@ -1,6 +1,8 @@
 const Discord = module.require("discord.js");
-const DBL = require("dblapi.js")
+const DBL = require("dblapi.js") //DBL api
 const unirest = require("unirest")
+const BOATS = require('boats.js'); //discord.boats API
+const Boats = new BOATS(process.env.BOATS);
 
 module.exports.run = async(bot, message, args) => {
     // SERVER COUNT POST START
@@ -17,6 +19,11 @@ module.exports.run = async(bot, message, args) => {
         .send({ "count": bot.guilds.size, "Authorization": process.env.BFD_TKN })
         .end(function(response) {
             console.log("Server count posted to B4D");
+        });
+        Boats.postStats(bot.guilds.size, '481894520741691393').then(() => {
+            console.log('Successfully updated server count on discord.boats.');
+        }).catch((err) => {
+            console.error(err);
         });
     // SERVER COUNT POST END
     let m = await message.channel.send("Pinging...");

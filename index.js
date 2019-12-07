@@ -6,6 +6,8 @@ const fs = require("fs");
 const prefix = "m!"; //change to your prefix
 const DBL = require("dblapi.js") //discordbotlist API
 const dbl = new DBL(process.env.DBL_TKN, bot);
+const BOATS = require('boats.js'); //discord.boats API
+const Boats = new BOATS(process.env.BOATS);
 const unirest = require("unirest") //used to access botsfordiscord.com API
 
 bot.commands = new Discord.Collection();
@@ -50,6 +52,12 @@ bot.on("ready", async () => {
         console.log(`Oops! ${e}`);
     })
     console.log("Bot is online!");
+
+    Boats.postStats(bot.guilds.size, '481894520741691393').then(() => {
+        console.log('Successfully updated server count on discord.boats.');
+    }).catch((err) => {
+        console.error(err);
+    });
     // SERVER COUNT POST END
 
 
