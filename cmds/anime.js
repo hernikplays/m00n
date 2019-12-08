@@ -7,19 +7,17 @@ module.exports.run = async(bot, message, args) => {
             .header("Accept", "application/vnd.api+json")
             .end(function(result) {
                     if(result.body.meta.count == 0) return message.channel.send(":x: Nothing found")
+                    let desc = result.body.data[0].attributes.synopsis.slice(0, 1021) + "..."
                 let e = new Discord.RichEmbed()
                     .setTitle(`Here's what I found`)
                     .setImage(result.body.data[0].attributes.posterImage.medium)
                     .addField("English Title", result.body.data[0].attributes.titles.en, true)
                     .addField("Japanese Title", result.body.data[0].attributes.titles.en_jp, true)
-                    .addField("Description", result.body.data[0].attributes.synopsis, true)
+                    .addField("Description", desc, true)
                     .addField("Episode Count", result.body.data[0].attributes.episodeCount, true)
                     .setColor("RANDOM")
                     //.setFooter(`Requested by ${message.author.username}`)
-                try {message.channel.send(e)}
-                catch(e){
-                    if(err) return message.channel.send("Encountered following error while executing anime command: `" +err+"`")
-                }
+                message.channel.send(e)
     
             });
     })();
