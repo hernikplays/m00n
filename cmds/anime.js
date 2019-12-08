@@ -6,7 +6,7 @@ module.exports.run = async(bot, message, args) => {
         await unirest.get(`https://kitsu.io/api/edge/anime?filter[text]=${search}`)
             .header("Accept", "application/vnd.api+json")
             .end(function(result) {
-                if(result.body.meta.count == 0) return message.channel.send(":x: Nothing found")
+                    if(result.body.meta.count == 0) return message.channel.send(":x: Nothing found")
                 let e = new Discord.RichEmbed()
                     .setTitle(`Here's what I found`)
                     .setImage(result.body.data[0].attributes.posterImage.medium)
@@ -16,7 +16,9 @@ module.exports.run = async(bot, message, args) => {
                     .addField("Episode Count", result.body.data[0].attributes.episodeCount, true)
                     .setColor("RANDOM")
                     //.setFooter(`Requested by ${message.author.username}`)
-                message.channel.send(e);
+                message.channel.send(e).catch(err =>{
+                    if(err) return message.channel.send("Encountered following error while executing anime command: `" +err+"`")
+                })
     
             });
     })();
