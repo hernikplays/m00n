@@ -5,7 +5,8 @@ module.exports.run = async(bot, message, args) => {
     unirest.get(`https://kitsu.io/api/edge/anime?filter[text]=${search}`)
         .header("Accept", "application/json")
         .end(function(result) {
-            if(result.body.meta.count == 0) return message.channel.send(":x: Nothing found")
+            console.log(result.body)
+            //if(result.body.meta.count == 0) return message.channel.send(":x: Nothing found")
             let e = new Discord.RichEmbed()
                 .setTitle(`Here's what I found`)
                 .setImage(result.body.data[0].posterImage.medium)
