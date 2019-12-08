@@ -24,6 +24,7 @@
     "moment": "^2.24.0",
     "moment-duration-format": "^2.3.2",
     "ms": "^2.1.2",
+    "nhentai-js": "^3.3.0",
     "nodeyourmeme": "^2.0.0",
     "npm": "^6.13.2",
     "opusscript": "0.0.6",
