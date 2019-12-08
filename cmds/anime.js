@@ -3,10 +3,10 @@ const unirest = require("unirest")
 module.exports.run = async(bot, message, args) => {
     let search = args.join("%20")
     unirest.get(`https://kitsu.io/api/edge/anime?filter[text]=${search}`)
-        .header("Accept", "application/json")
+        .header("Accept", "application/vnd.api+json")
         .end(function(result) {
             console.log(result.body)
-            //if(result.body.meta.count == 0) return message.channel.send(":x: Nothing found")
+            if(result.body.meta.count == 0) return message.channel.send(":x: Nothing found")
             let e = new Discord.RichEmbed()
                 .setTitle(`Here's what I found`)
                 .setImage(result.body.data[0].posterImage.medium)
