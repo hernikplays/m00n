@@ -16,9 +16,10 @@ module.exports.run = async(bot, message, args) => {
                     .addField("Episode Count", result.body.data[0].attributes.episodeCount, true)
                     .setColor("RANDOM")
                     //.setFooter(`Requested by ${message.author.username}`)
-                message.channel.send(e).catch(err =>{
+                try {message.channel.send(e)}
+                catch(e){
                     if(err) return message.channel.send("Encountered following error while executing anime command: `" +err+"`")
-                })
+                }
     
             });
     })();
