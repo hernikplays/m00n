@@ -1,6 +1,7 @@
 const Discord = module.require("discord.js");
 const unirest = require("unirest")
 module.exports.run = async (bot, message, args) => {
+  if(!args) return message.channel.send(":x: You need to enter a question")
   let search = args.join("%20")
     unirest.get(`https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=${search}&site=stackoverflow`)
     .header("Accept", "application/json")
