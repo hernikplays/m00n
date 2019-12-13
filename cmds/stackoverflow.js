@@ -22,6 +22,7 @@ module.exports.run = async (bot, message, args) => {
       .addField("Title", `**[${result.body.items[0].title}](${result.body.items[0].link})**`)
       .addField("Asked by", result.body.items[0].owner.display_name)
       .addField("Asked on", time)
+      .setColor("#EA8631")
       message.channel.send(e);
       
     });
