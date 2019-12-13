@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
       var minutes = "0" + date.getMinutes()
       var seconds = "0" + date.getSeconds()
 
-      var time = month+"-"+day+"-"+year+' '+hour+":"+minutes.substr(-2)+":"+seconds.substr(-2)
+      var time = month+" "+day+", "+year+' '+hour+":"+minutes.substr(-2)+":"+seconds.substr(-2)
       let e = new Discord.RichEmbed()
       .setTitle("You asked for '"+args.join(" ")+"'")
       .addField("Title", `**[${result.body.items[0].title}](${result.body.items[0].link})**`)
