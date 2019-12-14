@@ -37,11 +37,11 @@ module.exports.run = async(bot, message, args) => {
             .addField("Arch", `\`${os.arch()}\``, true)
             .addField("Platform", `\`\`${os.platform()}\`\``, true)
             .addField("API Latency", `${Math.round(bot.ping)}ms`)
-            members(bot)
+            members()
         message.channel.send(embedStats)
     });
 
-    (async (bot) =>{
+    async function members(){
         bot.guilds.forEach((guild) => {
             guild.fetchMembers().then(g => {
                 //let count = 0;
@@ -52,7 +52,7 @@ module.exports.run = async(bot, message, args) => {
             });
         
         });
-    })
+    }
     
 }
 
