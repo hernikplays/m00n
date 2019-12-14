@@ -37,7 +37,7 @@ module.exports.run = async(bot, message, args) => {
             .addField("Arch", `\`${os.arch()}\``, true)
             .addField("Platform", `\`\`${os.platform()}\`\``, true)
             .addField("API Latency", `${Math.round(bot.ping)}ms`)
-            await console.log(bot.guilds)
+            console.log(bot.guilds)
         message.channel.send(embedStats)
     });
 
