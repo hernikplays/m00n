@@ -15,6 +15,19 @@ module.exports.run = async (bot, message, args) => {
                 let art = dojin.details.artists.join(", ");
                 let char = dojin.details.characters.join(", ");
                 let tags = dojin.details.tags.join(", ");
+                if(!char){
+                    console.log(dojin)
+                
+                let e = new Discord.RichEmbed()
+                .setTitle(dojin.title + `(${dojin.link})`)
+                .addField("Artists", art)
+                .addField("Tags", tags)
+                .setImage(dojin.pages[0])
+                message.channel.send(e)
+                }else{
+                let art = dojin.details.artists.join(", ");
+                let char = dojin.details.characters.join(", ");
+                let tags = dojin.details.tags.join(", ");
                 let e = new Discord.RichEmbed()
                 .setTitle(dojin.title + `(${dojin.link})`)
                 .addField("Artists", art)
@@ -22,6 +35,7 @@ module.exports.run = async (bot, message, args) => {
                 .addField("Tags", tags)
                 .setImage(dojin.pages[0])
                 message.channel.send(e)
+            }
                 
             } else{
                 return message.channel.send(":x: Doujin not found")
