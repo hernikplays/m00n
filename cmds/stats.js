@@ -41,11 +41,10 @@ module.exports.run = async(bot, message, args) => {
         message.channel.send(embedStats)
     });
 
-
-    function members(){
+    (async () =>{
         bot.guilds.forEach((guild) => {
             guild.fetchMembers().then(g => {
-                let count = 0;
+                //let count = 0;
                 g.members.forEach((member) => {
                     count++;
                 });
@@ -53,7 +52,8 @@ module.exports.run = async(bot, message, args) => {
             });
         
         });
-    }
+    })
+    
 }
 
 module.exports.help = {

@@ -13,11 +13,7 @@ module.exports.run = async(bot, message, args) => {
         "https://cdn.discordapp.com/attachments/469680760232738816/485869489553014794/Bed.PNG",
         "https://i.postimg.cc/nc86v2d8/pyrostair.jpg",
         "https://i.postimg.cc/0QMBSKD2/pyroalex.jpg",
-        "http://xd.lol-sa.me/i/ae0f.png",
-        "https://media.tenor.com/images/92e792b25d905b6a5f78b64a4d992e35/tenor.gif",
-        "https://media.tenor.com/images/18f63974bdb94e513b210cdd7a6c2d0d/tenor.gif",
-        "https://media.tenor.com/images/223ba9f9894ce272b837c5b525b32692/tenor.gif",
-        "https://tenor.com/view/cringe-stab-you-died-pyrocynical-sword-gif-11604515"
+        "https://pics.ballmemes.com/pyrocynical-42975103.png"
     ]
     let result = Math.floor((Math.random() * pyromemes.length));
     const e = new Discord.RichEmbed()
