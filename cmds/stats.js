@@ -26,8 +26,8 @@ module.exports.run = async(bot, message, args) => {
             .setAuthor(bot.user.username)
             .setTitle("**Bot Stats**")
             .setColor("RANDOM")
-            .addField("Bot Version", "2.8")
-            .addField("Server/User count", `${bot.guilds.size} servers`)
+            .addField("Bot Version", "2.8", true)
+            .addField("Server count", `${bot.guilds.size} servers`, true)
             .addField("Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
             .addField("Uptime ", `${duration}`, true)
             .addField("Servers", `${bot.guilds.size.toLocaleString()}`, true)
@@ -37,7 +37,6 @@ module.exports.run = async(bot, message, args) => {
             .addField("Arch", `\`${os.arch()}\``, true)
             .addField("Platform", `\`\`${os.platform()}\`\``, true)
             .addField("API Latency", `${Math.round(bot.ping)}ms`)
-            console.log(bot.guilds)
         message.channel.send(embedStats)
     });
 
