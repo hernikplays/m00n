@@ -12,10 +12,14 @@ module.exports.run = async (bot, message, args) => {
             if(nhentai.exists(search)) { 
                 const dojin = await nhentai.getDoujin(search)
                 console.log(dojin)
+                let art = dojin.details.artists.join(", ");
+                let char = dojin.details.characters.join(", ");
+                let tags = dojin.details.tags.join(", ");
                 let e = new Discord.RichEmbed()
                 .setTitle(dojin.title + `(${dojin.link})`)
-                .addField("Artists", dojin.details.artists.join(", "))
-                .addField("Characters", dojin.details.characters.join(", "))
+                .addField("Artists", art)
+                .addField("Characters", char)
+                .addField("Tags", tags)
                 .setImage(dojin.pages[0])
                 message.channel.send(e)
                 
