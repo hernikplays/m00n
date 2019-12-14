@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
     unirest.get(`https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=${search}&site=stackoverflow`)
     .header("Accept", "application/json")
     .end(function (result) {
+      if(!items[0]) return message.channel.send(":x: Nothing found")
       var unixtimestamp = result.body.items[0].creation_date
       var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
       var date = new Date(unixtimestamp*1000)
