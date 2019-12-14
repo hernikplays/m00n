@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
                 let e = new Discord.RichEmbed()
                 .setTitle(dojin.title + `(${dojin.link})`)
                 .addField("Artists", dojin.details.artists.join(", "))
-                .addField("Characters", dojin.details.characters.slice(0).join(", "))
+                .addField("Characters", dojin.details.characters.join(", "))
                 .setImage(dojin.pages[0])
                 message.channel.send(e)
                 
