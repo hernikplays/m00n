@@ -50,7 +50,7 @@ module.exports.run = async(bot, message, args) => {
                     count++;
                 });
                 console.log(count);
-                theamount = this + count;
+                theamount = theamount + count;
                 console.log(theamount)
             });
             
