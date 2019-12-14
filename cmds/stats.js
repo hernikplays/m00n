@@ -27,6 +27,7 @@ module.exports.run = async(bot, message, args) => {
             .setTitle("**Bot Stats**")
             .setColor("RANDOM")
             .addField("Bot Version", "2.8")
+            .addField("Server/User count", `${bot.guilds.size} servers / ${bot.guilds.memberCount}`)
             .addField("Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
             .addField("Uptime ", `${duration}`, true)
             .addField("Servers", `${bot.guilds.size.toLocaleString()}`, true)
@@ -39,6 +40,19 @@ module.exports.run = async(bot, message, args) => {
         message.channel.send(embedStats)
     });
 
+
+    function members(){
+        bot.guilds.forEach((guild) => {
+            guild.fetchMembers().then(g => {
+                let count = 0;
+                g.members.forEach((member) => {
+                    count++;
+                });
+                console.log(count);
+            });
+        
+        });
+    }
 }
 
 module.exports.help = {
