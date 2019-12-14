@@ -37,25 +37,11 @@ module.exports.run = async(bot, message, args) => {
             .addField("Arch", `\`${os.arch()}\``, true)
             .addField("Platform", `\`\`${os.platform()}\`\``, true)
             .addField("API Latency", `${Math.round(bot.ping)}ms`)
-            members()
+            await console.log(bot.guilds)
         message.channel.send(embedStats)
     });
 
-    async function members(){
-        bot.guilds.forEach((guild) => {
-            let theamount = 0
-            guild.fetchMembers().then(g => {
-                let count = 0
-                g.members.forEach((member) => {
-                    count++;
-                });
-                console.log(count);
-                theamount = theamount + count;
-                console.log(theamount)
-            });
-            
-        });
-    }
+    
     
 }
 
