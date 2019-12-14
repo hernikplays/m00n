@@ -43,9 +43,9 @@ module.exports.run = async(bot, message, args) => {
 
     async function members(){
         bot.guilds.forEach((guild) => {
-            let theamount = "0"
+            let theamount = 0
             guild.fetchMembers().then(g => {
-                let count = "0"
+                let count = 0
                 g.members.forEach((member) => {
                     count++;
                 });
