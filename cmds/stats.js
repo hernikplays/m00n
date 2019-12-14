@@ -37,6 +37,7 @@ module.exports.run = async(bot, message, args) => {
             .addField("Arch", `\`${os.arch()}\``, true)
             .addField("Platform", `\`\`${os.platform()}\`\``, true)
             .addField("API Latency", `${Math.round(bot.ping)}ms`)
+            members()
         message.channel.send(embedStats)
     });
 
