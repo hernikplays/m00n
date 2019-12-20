@@ -30,8 +30,9 @@ fs.readdir("./cmds/", (err, files) => {
         bot.commands.set(props.help.name, props);
     });
 });
-// SERVER COUNT POST START
+
 bot.on("ready", async () => {
+    // SERVER COUNT POST START
     unirest.post('https://botsfordiscord.com/api/bot/481894520741691393')
         .headers({
             'Accept': 'application/json',
