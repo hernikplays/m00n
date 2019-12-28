@@ -1,8 +1,7 @@
 const Discord = module.require("discord.js");
 const Kaori = require('kaori');
 const DBL = require("dblapi.js") //discordbotlist API
-const BOATS = require('boats.js'); //discord.boats library
-const Boats = new BOATS(process.env.BOATS);
+
 
 //const moreSites = require('../r34.json');
 const kaori = new Kaori();
@@ -14,15 +13,11 @@ module.exports.run = async (bot, message, args) => {
     dbl.hasVoted(message.author.id).then(voted => {
         
         if (!voted) {
-            Boats.getVoted('481894520741691393', message.author.id).then((boated) => {
-                console.log(boated);
+            
                 let upem = new Discord.RichEmbed()
             .addField(`:x: Error`, "Please upvote the bot [here](https://top.gg/bot/481894520741691393/vote) or [here](https://discord.boats/bot/m00n) to use this command for the next 24hrs. **Upvoting is free**")
             .setColor("#fc1414")
-                if(!boated) return message.channel.send(upem)
-            }).catch((err) => {
-                console.error(err);
-            });
+            message.channel.send(upem)
         }
 
         if (!message.channel.nsfw) return message.channel.send(":no_entry: You need to be in a NSFW channel")
