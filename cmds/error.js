@@ -6,7 +6,7 @@ module.exports.run = async(bot, message, args) => {
 
     let Blacklisted = new Discord.RichEmbed()
         .setTitle(":no_entry_sign: Blacklisted")
-        .setDescription(`You've been blacklisted from using the Error Command, for at least one of the following reasons:\n 1) Misuse of the Error Command.\n 2) Other reason.\n If you would like to still submit an error, submit it trough[here](https://github.com/discordies/JustAPotato/issues)`)
+        .setDescription(`You've been blacklisted from using the Error Command, for at least one of the following reasons:\n 1) Misuse of the Error Command.\n 2) Other reason.\n If you would like to still submit an error, submit it trough[here](https://github.com/hernikplays/m00n/issues)`)
         .setFooter("If you'd like to appeal to be whitelisted please contact hernikplays#9617")
         .setColor("RED")
         .setThumbnail(message.author.avatarURL);
