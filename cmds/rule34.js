@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         if (!voted) {
             
                 let upem = new Discord.RichEmbed()
-            .addField(`:x: Error`, "Please upvote the bot [here](https://top.gg/bot/481894520741691393/vote) or [here](https://discord.boats/bot/m00n) to use this command for the next 24hrs. **Upvoting is free**")
+            .addField(`:x: Error`, "Please upvote the bot [here](https://top.gg/bot/481894520741691393/vote) to use this command for the next 24hrs. **Upvoting is free**")
             .setColor("#fc1414")
             message.channel.send(upem)
             return;
