@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         let ask = args.toString();
         let search = ask.replace(",", "");
 
-        unirest.get(`https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tags=${search}&api_key=716386b3a80b6b9f216b21271287d1ae16142171040a459161733b06ef7ee79a&user_id=527310`)
+        unirest.get(`https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tags=${search}&api_key=anonymous&user_id=9455`)
             .header("Accept", "application/json")
             .end(function (result) {
                 if (!result.body[0]) return message.channel.send(":x: Nothing found")
