@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     const dbl = new DBL(process.env.DBL_TKN, bot);
 
     dbl.hasVoted(message.author.id).then(voted => {
-
+        console.log(voted)
         if (!voted) {
 
             let upem = new Discord.RichEmbed()
