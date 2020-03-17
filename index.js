@@ -33,7 +33,7 @@ fs.readdir("./cmds/", (err, files) => {
 
 bot.on("ready", async () => {
     // SERVER COUNT POST START
-    dbl.on('posted', () => {
+    /*dbl.on('posted', () => {
         console.log('Server count posted!');
     })
 
@@ -46,7 +46,7 @@ bot.on("ready", async () => {
         console.log('Successfully updated server count on discord.boats.');
     }).catch((err) => {
         console.error(err);
-    });
+    });*/
     // SERVER COUNT POST END
 
 
