@@ -39,7 +39,6 @@ dbl.on('posted', () => {
 dbl.on('error', e => {
     console.log(`Oops! ${e}`);
 })
-console.log("Bot is online!");
 
 Boats.postStats(bot.guilds.size, '481894520741691393').then(() => {
     console.log('Successfully updated server count on discord.boats.');
@@ -49,6 +48,8 @@ Boats.postStats(bot.guilds.size, '481894520741691393').then(() => {
 // SERVER COUNT POST END
 
 bot.on("ready", async () => {
+    console.log("Bot is online!");
+
     bot.user.setActivity(`the sky in ${bot.guilds.size} servers // m!help`, {
         type: 'WATCHING'
     });
