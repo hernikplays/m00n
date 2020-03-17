@@ -30,8 +30,7 @@ fs.readdir("./cmds/", (err, files) => {
 
 bot.on("ready", async () => {
     console.log("Bot is online!");
-    console.log(bot.guilds)
-    bot.user.setActivity(`the sky in ${bot.guilds.size} servers // m!help`, {
+    bot.user.setActivity(`the sky in ${bot.guilds.length} servers // m!help`, {
         type: 'WATCHING'
     });
 });
