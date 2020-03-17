@@ -4,10 +4,6 @@ const bot = new Discord.Client({
 });
 const fs = require("fs");
 const prefix = "m!"; //change to your prefix
-const DBL = require("dblapi.js") //discordbotlist API
-const dbl = new DBL(process.env.DBL_TKN, bot);
-const BOATS = require('boats.js'); //discord.boats API
-const Boats = new BOATS(process.env.BOATS);
 const unirest = require("unirest") //used to access botsfordiscord.com API
 
 bot.commands = new Discord.Collection();
@@ -34,22 +30,6 @@ fs.readdir("./cmds/", (err, files) => {
 
 
 bot.on("ready", async () => {
-    // SERVER COUNT POST START
-    dbl.on('posted', () => {
-        console.log('Server count posted!');
-    })
-
-    dbl.on('error', e => {
-        console.log(`Oops! ${e}`);
-    })
-
-    Boats.postStats(bot.guilds.size, '481894520741691393').then(() => {
-        console.log('Successfully updated server count on discord.boats.');
-    }).catch((err) => {
-        console.error(err);
-    });
-    // SERVER COUNT POST END
-
     console.log("Bot is online!");
 
     bot.user.setActivity(`the sky in ${bot.guilds.size} servers // m!help`, {
