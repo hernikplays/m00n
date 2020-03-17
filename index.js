@@ -4,7 +4,6 @@ const bot = new Discord.Client({
 });
 const fs = require("fs");
 const prefix = "m!"; //change to your prefix
-const unirest = require("unirest") //used to access botsfordiscord.com API
 
 bot.commands = new Discord.Collection();
 
@@ -32,7 +31,7 @@ fs.readdir("./cmds/", (err, files) => {
 bot.on("ready", async () => {
     console.log("Bot is online!");
 
-    bot.user.setActivity(`the sky in ${bot.guilds.size} servers // m!help`, {
+    bot.user.setActivity(`the sky in ${bot.guilds} servers // m!help`, {
         type: 'WATCHING'
     });
 });
