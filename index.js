@@ -31,26 +31,24 @@ fs.readdir("./cmds/", (err, files) => {
     });
 });
 
+// SERVER COUNT POST START
+dbl.on('posted', () => {
+    console.log('Server count posted!');
+})
+
+dbl.on('error', e => {
+    console.log(`Oops! ${e}`);
+})
+console.log("Bot is online!");
+
+Boats.postStats(bot.guilds.size, '481894520741691393').then(() => {
+    console.log('Successfully updated server count on discord.boats.');
+}).catch((err) => {
+    console.error(err);
+});
+// SERVER COUNT POST END
+
 bot.on("ready", async () => {
-    // SERVER COUNT POST START
-    /*dbl.on('posted', () => {
-        console.log('Server count posted!');
-    })
-
-    dbl.on('error', e => {
-        console.log(`Oops! ${e}`);
-    })
-    console.log("Bot is online!");
-
-    Boats.postStats(bot.guilds.size, '481894520741691393').then(() => {
-        console.log('Successfully updated server count on discord.boats.');
-    }).catch((err) => {
-        console.error(err);
-    });*/
-    // SERVER COUNT POST END
-
-
-
     bot.user.setActivity(`the sky in ${bot.guilds.size} servers // m!help`, {
         type: 'WATCHING'
     });
