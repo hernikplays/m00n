@@ -27,45 +27,20 @@ module.exports.run = async (bot, message, args) => {
         unirest.get(`https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tags=${search}&api_key=anonymous&user_id=9455`)
             .header("Accept", "application/json")
             .end(function (result) {
-                if (!result.body[0]) return message.channel.send(":x: Nothing found")
-                let max = result.body.length
+                let res = result.body.filter(lmao => lmao.rating == "e")
+                if (!res[0]) return message.channel.send(":x: Nothing found")
+                let max = res.length
                 let min = 0
                 let random = Math.floor(Math.random()*(max-min+1)+min);
 
-                if(result.body[random].rating == "e"){
                     let e = new Discord.RichEmbed()
                     .setTitle("You asked for '" + args.join(" ") + "'")
-                    .setImage(result.body[random].file_url)
-                    .addField("Tags", `\`${result.body[random].tags}\``)
-                    .addField("Rating", "Explicit")
+                    .setImage(res[random].file_url)
+                    .addField("Tags", `\`${res[random].tags}\``)
                     .addField("Source", `[Click here](${result.body[random].source})`)
                     .setColor("RANDOM")
                     message.channel.send(e);
-                }
-                else if(result.body[random].rating == "s"){
-                    let e = new Discord.RichEmbed()
-                    .setTitle("You asked for '" + args.join(" ") + "'")
-                    .setImage(result.body[random].file_url)
-                    .addField("Tags", `\`${result.body[random].tags}\``)
-                    .addField("Rating", "Safe")
-                    .addField("Source", `[Click here](${result.body[random].source})`)
-                    .setColor("RANDOM")
-                    message.channel.send(e);
-                }
-                else if(result.body[random].rating == "q"){
-                    let e = new Discord.RichEmbed()
-                    .setTitle("You asked for '" + args.join(" ") + "'")
-                    .setImage(result.body[random].file_url)
-                    .addField("Tags", `\`${result.body[random].tags}\``)
-                    .addField("Rating", "Questionable")
-                    .addField("Source", `[Click here](${result.body[random].source})`)
-                    .setColor("RANDOM")
-                    message.channel.send(e);
-                }
-
-                
-                
-
+    
             });
     })
 
