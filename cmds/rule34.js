@@ -1,22 +1,20 @@
 const Discord = module.require("discord.js");
-const Kaori = require('kaori');
+const unirest = require("unirest")
 const DBL = require("dblapi.js") //discordbotlist API
 
 
 //const moreSites = require('../r34.json');
-const kaori = new Kaori();
-
 
 module.exports.run = async (bot, message, args) => {
     const dbl = new DBL(process.env.DBL_TKN, bot);
 
     dbl.hasVoted(message.author.id).then(voted => {
-        
+
         if (!voted) {
-            
-                let upem = new Discord.RichEmbed()
-            .addField(`:x: Error`, "Please upvote the bot [here](https://top.gg/bot/481894520741691393/vote) to use this command for the next 24hrs. **Upvoting is free**")
-            .setColor("#fc1414")
+
+            let upem = new Discord.RichEmbed()
+                .addField(`:x: Error`, "Please upvote the bot [here](https://top.gg/bot/481894520741691393/vote) to use this command for the next 24hrs. **Upvoting is free**")
+                .setColor("#fc1414")
             message.channel.send(upem)
             return;
         }
@@ -26,29 +24,47 @@ module.exports.run = async (bot, message, args) => {
         let ask = args.toString();
         let search = ask.replace(",", "");
 
+        unirest.get(`https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&tags=${search}&api_key=716386b3a80b6b9f216b21271287d1ae16142171040a459161733b06ef7ee79a&user_id=527310`)
+            .header("Accept", "application/json")
+            .end(function (result) {
+                if (!result.body[0]) return message.channel.send(":x: Nothing found")
+                let max = result.body.length
+                let min = 0
+                let random = Math.floor(Math.random()*(max-min+1)+min);
 
-        kaori.search("r34", {
-                tags: [search],
-                limit: 1,
-                random: true
-            }).then(images => {
-                let wem = new Discord.RichEmbed()
-                    .setTitle(`Here is your porn`)
-                    .setImage(images[0].common.fileURL)
+                if(result.body[random].rating == "e"){
+                    let e = new Discord.RichEmbed()
+                    .setTitle("You asked for '" + args.join(" ") + "'")
+                    .setImage(result.body[random].file_url)
+                    .addField("Tags", `\`${result.body[random].tags}\``)
+                    .addField("Rating", "Explicit")
+                    .addField("Source", `[Click here](${result.body[random].source})`)
                     .setColor("RANDOM")
-                    .setFooter(`Requested by ${message.author.username}`, "https://images.emojiterra.com/twitter/v12/512px/1f51e.png")
-                message.channel.send(wem);
-            })
-            .catch(err => {
-                let notfound = new Discord.RichEmbed()
-                    .addField(":x: Error", "Cannot find any images, try another word")
-                    .setTimestamp(new Date())
-                    .setColor("#fc2828")
+                    message.channel.send(e);
+                }
+                else if(result.body[random].rating == "s"){
+                    let e = new Discord.RichEmbed()
+                    .setTitle("You asked for '" + args.join(" ") + "'")
+                    .setImage(result.body[random].file_url)
+                    .addField("Tags", `\`${result.body[random].tags}\``)
+                    .addField("Rating", "Safe")
+                    .addField("Source", `[Click here](${result.body[random].source})`)
+                    .setColor("RANDOM")
+                    message.channel.send(e);
+                }
+                else if(result.body[random].rating == "q"){
+                    let e = new Discord.RichEmbed()
+                    .setTitle("You asked for '" + args.join(" ") + "'")
+                    .setImage(result.body[random].file_url)
+                    .addField("Tags", `\`${result.body[random].tags}\``)
+                    .addField("Rating", "Questionable")
+                    .addField("Source", `[Click here](${result.body[random].source})`)
+                    .setColor("RANDOM")
+                    message.channel.send(e);
+                }
 
-
-                if (err == "TypeError: Cannot read property 'common' of undefined") return message.channel.send(notfound)
-
-                message.channel.send(`There was an error while processing your request: ${err}`)
+                
+                
 
             });
     })
