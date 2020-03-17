@@ -21,12 +21,14 @@ module.exports.run = async(bot, message, args) => {
         if (err) {
             return message.reply(`There was an error in the stats command: ${err}`);
         }
+        dbl.hasVoted(message.author.id).then(voted => {
         const duration = moment.duration(bot.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
         const embedStats = new Discord.RichEmbed()
             .setAuthor(bot.user.username)
             .setTitle("**Bot Stats**")
             .setColor("RANDOM")
-            .addField("Bot Version", "2.8", true)
+            .addField("Vote status", voted)
+            .addField("Bot Version", "2.9", true)
             .addField("Mem Usage", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`, true)
             .addField("Uptime ", `${duration}`, true)
             .addField("Servers", `${bot.guilds.size.toLocaleString()}`, true)
@@ -37,6 +39,7 @@ module.exports.run = async(bot, message, args) => {
             .addField("Platform", `\`\`${os.platform()}\`\``, true)
             .addField("API Latency", `${Math.round(bot.ping)}ms`)
         message.channel.send(embedStats)
+        })
     });
 
     
