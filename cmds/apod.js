@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const unirest = require("unirest")
 module.exports.run = async (bot, message, args) => {
-    unirest.get(`https://api.nasa.gov/planetary/apod?api_key="NASAAPIKEY"`)
+    unirest.get(`https://api.nasa.gov/planetary/apod?api_key=${process.env.NASA}`)
     .header("Accept", "application/json")
     .end(function (result) {
       let e = new Discord.RichEmbed()
