@@ -1,15 +1,7 @@
 const Discord = module.require("discord.js");
 const unirest = require("unirest")
-const DBL = require("dblapi.js") //discordbotlist API
-
-
-//const moreSites = require('../r34.json');
 
 module.exports.run = async (bot, message, args) => {
-    const dbl = new DBL(process.env.DBL_TKN, bot);
-
-    dbl.hasVoted(message.author.id).then(voted => {
-        console.log(voted)
 
         if (!message.channel.nsfw) return message.channel.send(":no_entry: You need to be in a NSFW channel")
         if (!args[0]) return message.channel.send("🔍 You need to enter the search term!");
@@ -34,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
                     message.channel.send(e);
     
             });
-    })
+
 
 
 
