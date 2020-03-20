@@ -5,18 +5,10 @@ const m = require("moment-duration-format");
 let os = require('os')
 let cpuStat = require("cpu-stat")
 const ms = require("ms")
-const DBL = require("dblapi.js")
+
 
 
 module.exports.run = async(bot, message, args) => {
-    const dbl = new DBL(process.env.DBL_TKN, bot);
-    dbl.on('posted', () => {
-        console.log('Server count posted!');
-    })
-
-    dbl.on('error', e => {
-        console.log(`Oops! ${e}`);
-    })
     cpuStat.usagePercent(function(err, percent, seconds) {
         if (err) {
             return message.reply(`There was an error in the stats command: ${err}`);
