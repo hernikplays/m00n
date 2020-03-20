@@ -62,4 +62,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(process.env.BOT_TKN); //process.env.BOT_TKN is for heroku, change it to "yourtokenhere"
+bot.login("yourtoken"); 
